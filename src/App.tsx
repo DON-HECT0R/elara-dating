@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Cursor from './components/Cursor'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -10,7 +10,7 @@ import DeleteAccount from './pages/DeleteAccount'
 
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Cursor />
       <Navbar />
       <Routes>
@@ -21,6 +21,6 @@ export default function App() {
         <Route path="/delete-account" element={<DeleteAccount />} />
       </Routes>
       <Footer />
-    </HashRouter>
+    </BrowserRouter>
   )
 }
