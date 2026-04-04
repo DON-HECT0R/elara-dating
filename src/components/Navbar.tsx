@@ -6,9 +6,9 @@ const NAV_LINKS = [
 ]
 
 const PAGE_LINKS = [
-  { label: 'Confidentialité', to: '/privacy' },
-  { label: 'CGU', to: '/terms' },
-  { label: 'Support', to: '/support' },
+  { label: 'Confidentialité', to: '/privacy.html', external: true },
+  { label: 'CGU', to: '/terms', external: false },
+  { label: 'Support', to: '/support', external: false },
 ]
 
 export default function Navbar() {
@@ -40,11 +40,12 @@ export default function Navbar() {
             </button>
           </li>
         ))}
-        {PAGE_LINKS.map(({ label, to }) => (
+        {PAGE_LINKS.map(({ label, to, external }) => (
           <li key={to}>
-            <Link to={to} className={location.pathname === to ? 'active' : ''}>
-              {label}
-            </Link>
+            {external
+              ? <a href={to}>{label}</a>
+              : <Link to={to} className={location.pathname === to ? 'active' : ''}>{label}</Link>
+            }
           </li>
         ))}
       </ul>

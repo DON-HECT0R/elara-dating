@@ -5,7 +5,7 @@ export default function Footer() {
     <footer>
       <div className="footer-logo">AURA</div>
       <div className="footer-links">
-        <Link to="/privacy">Confidentialité</Link>
+        <a href="/privacy.html">Confidentialité</a>
         <Link to="/terms">CGU</Link>
         <Link to="/support">Support</Link>
         <Link to="/delete-account">Supprimer mon compte</Link>
