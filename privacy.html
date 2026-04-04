@@ -4,542 +4,746 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Politique de confidentialité — AURA Dating</title>
+<meta name="description" content="Politique de confidentialité de l'application AURA Dating. Conformité RGPD, données collectées, droits des utilisateurs.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  :root {
-    --black: #080810;
-    --black2: #0e0e1a;
-    --gold: #C9A84C;
-    --gold-light: #e2c47a;
-    --gold-dim: rgba(201,168,76,0.15);
-    --bordeaux: #8B1A4A;
-    --white: #F5F0E8;
-    --white-dim: rgba(245,240,232,0.55);
-    --white-faint: rgba(245,240,232,0.08);
-  }
+:root {
+  --black:      #080810;
+  --black2:     #0e0e1a;
+  --gold:       #C9A84C;
+  --gold-light: #e2c47a;
+  --bordeaux:   #8B1A4A;
+  --white:      #F5F0E8;
+  --white-dim:  rgba(245,240,232,0.58);
+  --white-faint:rgba(245,240,232,0.07);
+}
 
-  html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
 
-  body {
-    background: var(--black);
-    color: var(--white);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    overflow-x: hidden;
-    cursor: none;
-  }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-  /* Custom cursor */
-  .cursor {
-    position: fixed; width: 10px; height: 10px;
-    background: var(--gold); border-radius: 50%;
-    pointer-events: none; z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease, width 0.3s, height 0.3s, background 0.3s;
-    mix-blend-mode: difference;
-  }
-  .cursor-ring {
-    position: fixed; width: 36px; height: 36px;
-    border: 1px solid var(--gold); border-radius: 50%;
-    pointer-events: none; z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: transform 0.18s ease, width 0.3s, height 0.3s, opacity 0.3s;
-    opacity: 0.5;
-  }
+a { color: var(--gold); text-decoration: none; }
+a:hover { color: var(--gold-light); text-decoration: underline; }
+strong { color: var(--white); font-weight: 500; }
 
-  /* ─── NAV ─── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 28px 48px;
-    background: linear-gradient(to bottom, rgba(8,8,16,0.98), transparent);
-    border-bottom: 1px solid rgba(201,168,76,0.06);
-  }
-  .logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem; font-weight: 300; letter-spacing: 0.35em;
-    color: var(--gold); text-transform: uppercase;
-    text-decoration: none;
-  }
-  .logo span { font-style: italic; font-weight: 400; }
-  nav ul { list-style: none; display: flex; gap: 40px; }
-  nav ul li a {
-    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--white-dim); text-decoration: none;
-    transition: color 0.3s;
-  }
-  nav ul li a:hover { color: var(--gold); }
-  nav ul li a.active { color: var(--gold); }
-  .nav-cta {
-    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--black); background: var(--gold);
-    padding: 10px 24px; border: none; cursor: none;
-    font-family: 'Montserrat', sans-serif; font-weight: 500;
-    transition: background 0.3s; text-decoration: none;
-    display: inline-block;
-  }
-  .nav-cta:hover { background: var(--gold-light); }
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 48px;
+  background: rgba(8,8,16,0.97);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  backdrop-filter: blur(12px);
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 300; letter-spacing: 0.35em;
+  color: var(--gold); text-transform: uppercase;
+  text-decoration: none;
+}
+.logo em { font-style: italic; font-weight: 400; }
+.nav-back {
+  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--white-dim); text-decoration: none; display: flex; align-items: center; gap: 8px;
+  transition: color .25s;
+}
+.nav-back:hover { color: var(--gold); text-decoration: none; }
+.nav-back::before { content: '←'; font-size: 0.8rem; }
 
-  /* ─── PAGE HEADER ─── */
-  .page-header {
-    padding: 160px 48px 80px;
-    position: relative; overflow: hidden;
-    border-bottom: 1px solid rgba(201,168,76,0.1);
-  }
-  .page-header::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 50% 80% at 80% 50%, rgba(139,26,74,0.1) 0%, transparent 70%),
-      radial-gradient(ellipse 30% 50% at 20% 60%, rgba(201,168,76,0.05) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .page-eyebrow {
-    font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 24px;
-    display: flex; align-items: center; gap: 16px;
-  }
-  .page-eyebrow::before {
-    content: ''; width: 40px; height: 1px; background: var(--gold);
-  }
-  .page-header h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 300; line-height: 1.1;
-    margin-bottom: 20px;
-  }
-  .page-header h1 em { font-style: italic; color: var(--gold); }
-  .page-header .meta {
-    font-size: 0.65rem; letter-spacing: 0.1em; color: var(--white-dim);
-    margin-top: 16px;
-  }
+/* ── HEADER ── */
+.page-header {
+  padding: 80px 48px 64px;
+  position: relative; overflow: hidden;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+.page-header::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 90% at 85% 50%, rgba(139,26,74,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 50% at 15% 60%, rgba(201,168,76,0.05) 0%, transparent 60%);
+}
+.eyebrow {
+  font-size: 0.58rem; letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 14px;
+  position: relative;
+}
+.eyebrow::before { content: ''; width: 36px; height: 1px; background: var(--gold); flex-shrink: 0; }
+.page-header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 300; line-height: 1.1; position: relative;
+}
+.page-header h1 em { font-style: italic; color: var(--gold); }
+.page-header .meta {
+  font-size: 0.62rem; letter-spacing: 0.1em; color: var(--white-dim);
+  margin-top: 18px; position: relative;
+}
 
-  /* ─── CONTENT ─── */
-  .content-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 80px 48px 120px;
-  }
+/* ── TOC ── */
+.toc-wrapper {
+  max-width: 820px; margin: 0 auto;
+  padding: 40px 48px 0;
+}
+.toc {
+  background: var(--white-faint);
+  border: 1px solid rgba(201,168,76,0.14);
+  border-left: 3px solid var(--gold);
+  padding: 28px 32px;
+}
+.toc-title {
+  font-size: 0.58rem; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 18px;
+  display: flex; align-items: center; gap: 10px;
+}
+.toc-title::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+.toc ol { list-style: none; counter-reset: toc; columns: 2; gap: 0; }
+.toc ol li { counter-increment: toc; padding: 5px 0 5px 24px; position: relative; }
+.toc ol li::before {
+  content: counter(toc, decimal-leading-zero);
+  position: absolute; left: 0;
+  font-family: 'Cormorant Garamond', serif; font-size: 0.7rem;
+  color: rgba(201,168,76,0.5); line-height: 1.6;
+}
+.toc ol li a {
+  font-size: 0.7rem; letter-spacing: 0.04em;
+  color: var(--white-dim); transition: color .2s;
+}
+.toc ol li a:hover { color: var(--gold); text-decoration: none; }
 
-  .intro-block {
-    background: var(--white-faint);
-    border: 1px solid rgba(201,168,76,0.15);
-    border-left: 3px solid var(--gold);
-    padding: 28px 32px;
-    margin-bottom: 64px;
-    font-size: 0.8rem; line-height: 1.9; letter-spacing: 0.03em;
-    color: var(--white-dim);
-  }
+/* ── CONTENT ── */
+.content {
+  max-width: 820px; margin: 0 auto;
+  padding: 64px 48px 120px;
+}
 
-  .policy-section {
-    margin-bottom: 64px;
-    opacity: 0; transform: translateY(20px);
-    animation: fadeUp 0.8s ease forwards;
-  }
-  .policy-section:nth-child(1) { animation-delay: 0.1s; }
-  .policy-section:nth-child(2) { animation-delay: 0.2s; }
-  .policy-section:nth-child(3) { animation-delay: 0.3s; }
-  .policy-section:nth-child(4) { animation-delay: 0.4s; }
-  .policy-section:nth-child(5) { animation-delay: 0.5s; }
-  .policy-section:nth-child(6) { animation-delay: 0.6s; }
-  .policy-section:nth-child(7) { animation-delay: 0.7s; }
-  .policy-section:nth-child(8) { animation-delay: 0.8s; }
-  .policy-section:nth-child(9) { animation-delay: 0.9s; }
+/* ── SECTION ── */
+.section {
+  margin-bottom: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(245,240,232,0.06);
+}
+.section:last-child { border-bottom: none; margin-bottom: 0; }
 
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
+.section-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-num::before { content: ''; width: 22px; height: 1px; background: var(--gold); }
 
-  .section-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 12px;
-    display: flex; align-items: center; gap: 12px;
-  }
-  .section-num::before {
-    content: ''; width: 24px; height: 1px; background: var(--gold);
-  }
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400; margin-bottom: 24px; line-height: 1.2;
+  scroll-margin-top: 90px;
+}
 
-  .policy-section h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem; font-weight: 400;
-    margin-bottom: 24px; line-height: 1.2;
-  }
+.section p {
+  font-size: 0.78rem; line-height: 2; letter-spacing: 0.025em;
+  color: var(--white-dim); margin-bottom: 14px;
+}
+.section p:last-child { margin-bottom: 0; }
 
-  .policy-section p {
-    font-size: 0.78rem; line-height: 2; letter-spacing: 0.03em;
-    color: var(--white-dim); margin-bottom: 16px;
-  }
+/* ── TABLE ── */
+table {
+  width: 100%; border-collapse: collapse;
+  margin: 24px 0; font-size: 0.72rem;
+}
+th {
+  font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500; text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  background: rgba(201,168,76,0.04);
+}
+td {
+  padding: 12px 14px; vertical-align: top;
+  color: var(--white-dim); line-height: 1.75;
+  border-bottom: 1px solid rgba(245,240,232,0.05);
+}
+tr:hover td { background: var(--white-faint); }
+td strong { font-weight: 500; }
 
-  .data-table {
-    width: 100%; border-collapse: collapse; margin: 24px 0;
-  }
-  .data-table th {
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold); font-weight: 500;
-    padding: 12px 16px; text-align: left;
-    border-bottom: 1px solid rgba(201,168,76,0.3);
-    background: rgba(201,168,76,0.04);
-  }
-  .data-table td {
-    font-size: 0.73rem; line-height: 1.7; letter-spacing: 0.02em;
-    color: var(--white-dim); padding: 14px 16px;
-    border-bottom: 1px solid rgba(245,240,232,0.05);
-    vertical-align: top;
-  }
-  .data-table tr:hover td { background: var(--white-faint); }
+/* ── LIST ── */
+.list { list-style: none; margin: 16px 0; }
+.list li {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(245,240,232,0.05);
+  font-size: 0.75rem; line-height: 1.85; color: var(--white-dim);
+}
+.list li:last-child { border-bottom: none; }
+.list li::before {
+  content: '✦'; color: var(--gold); font-size: 0.48rem;
+  flex-shrink: 0; margin-top: 7px;
+}
 
-  .rights-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
-    margin: 24px 0;
-  }
-  .right-card {
-    background: var(--black2);
-    border: 1px solid rgba(201,168,76,0.1);
-    padding: 24px 20px;
-    transition: border-color 0.3s;
-  }
-  .right-card:hover { border-color: rgba(201,168,76,0.3); }
-  .right-card-icon {
-    font-size: 1.2rem; margin-bottom: 10px; display: block;
-  }
-  .right-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem; font-weight: 400; margin-bottom: 8px;
-  }
-  .right-card p {
-    font-size: 0.68rem; line-height: 1.8;
-    color: var(--white-dim); margin-bottom: 0;
-  }
+/* ── CALLOUT BOXES ── */
+.box {
+  padding: 22px 26px; margin: 22px 0;
+  display: flex; gap: 14px; align-items: flex-start;
+  font-size: 0.75rem; line-height: 1.85; color: var(--white-dim);
+}
+.box-gold {
+  background: rgba(201,168,76,0.05);
+  border: 1px solid rgba(201,168,76,0.25);
+}
+.box-warning {
+  background: rgba(139,26,74,0.07);
+  border: 1px solid rgba(139,26,74,0.3);
+}
+.box-info {
+  background: var(--white-faint);
+  border: 1px solid rgba(201,168,76,0.12);
+  border-left: 3px solid var(--gold);
+}
+.box-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+.box p { margin: 0; }
 
-  .highlight-box {
-    background: rgba(201,168,76,0.05);
-    border: 1px solid rgba(201,168,76,0.25);
-    padding: 24px 28px; margin: 24px 0;
-    display: flex; gap: 16px; align-items: flex-start;
-  }
-  .highlight-icon {
-    font-size: 1.2rem; flex-shrink: 0; margin-top: 2px;
-  }
-  .highlight-box p {
-    margin-bottom: 0;
-  }
+/* ── RIGHTS GRID ── */
+.rights-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 14px; margin: 22px 0;
+}
+.right-card {
+  background: var(--black2);
+  border: 1px solid rgba(201,168,76,0.1);
+  padding: 22px 18px;
+  transition: border-color .25s;
+}
+.right-card:hover { border-color: rgba(201,168,76,0.3); }
+.right-card-icon { font-size: 1.1rem; margin-bottom: 8px; display: block; }
+.right-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 400; margin-bottom: 6px;
+}
+.right-card p {
+  font-size: 0.67rem; line-height: 1.8; color: var(--white-dim); margin: 0;
+}
 
-  .partner-list {
-    list-style: none; margin: 20px 0;
-  }
-  .partner-list li {
-    display: flex; gap: 16px; align-items: flex-start;
-    padding: 16px 0; border-bottom: 1px solid rgba(245,240,232,0.06);
-    font-size: 0.75rem; line-height: 1.8; color: var(--white-dim);
-  }
-  .partner-list li::before {
-    content: '✦'; color: var(--gold); font-size: 0.5rem;
-    flex-shrink: 0; margin-top: 6px;
-  }
-  .partner-list li strong {
-    color: var(--white); font-weight: 500;
-  }
+/* ── CONTACT CARD ── */
+.contact-card {
+  background: var(--black2);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 36px 32px; text-align: center; margin-top: 22px;
+}
+.contact-label {
+  font-size: 0.58rem; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 14px; display: block;
+}
+.contact-card a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 400; letter-spacing: 0.04em;
+  color: var(--white); display: block; margin-bottom: 10px;
+  transition: color .25s;
+}
+.contact-card a:hover { color: var(--gold); text-decoration: none; }
+.contact-card p { font-size: 0.65rem; color: var(--white-dim); margin: 0; }
 
-  .contact-card {
-    background: var(--black2);
-    border: 1px solid rgba(201,168,76,0.2);
-    padding: 40px 36px; text-align: center; margin-top: 24px;
-  }
-  .contact-card .contact-label {
-    font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 16px; display: block;
-  }
-  .contact-card a {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem; font-weight: 400;
-    color: var(--white); text-decoration: none;
-    letter-spacing: 0.05em;
-    transition: color 0.3s;
-  }
-  .contact-card a:hover { color: var(--gold); }
-  .contact-card p {
-    font-size: 0.68rem; color: var(--white-dim); margin-top: 12px; margin-bottom: 0;
-  }
+/* ── SEPARATOR ── */
+.sep {
+  display: flex; align-items: center; gap: 18px;
+  margin: 64px 0;
+}
+.sep::before, .sep::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent);
+}
+.sep span { font-size: 0.65rem; color: var(--gold); opacity: 0.5; }
 
-  /* Gold separator */
-  .gold-sep {
-    display: flex; align-items: center; gap: 20px;
-    margin: 64px 0 0;
-  }
-  .gold-sep::before, .gold-sep::after {
-    content: ''; flex: 1; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
-  }
-  .gold-sep span {
-    font-size: 0.7rem; color: var(--gold); opacity: 0.6;
-  }
+/* ── FOOTER ── */
+footer {
+  padding: 48px;
+  border-top: 1px solid rgba(201,168,76,0.08);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 20px;
+  background: var(--black2);
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; letter-spacing: 0.3em; color: var(--gold);
+}
+.footer-copy {
+  font-size: 0.52rem; letter-spacing: 0.1em;
+  color: rgba(245,240,232,0.2);
+}
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.78rem; font-style: italic; color: var(--white-dim);
+}
 
-  /* ─── FOOTER ─── */
-  footer {
-    padding: 60px 48px;
-    border-top: 1px solid rgba(201,168,76,0.1);
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem; letter-spacing: 0.3em; color: var(--gold);
-  }
-  .footer-copy {
-    font-size: 0.55rem; letter-spacing: 0.1em; color: rgba(245,240,232,0.2);
-  }
-  .footer-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.8rem; font-style: italic; color: var(--white-dim);
-  }
-
-  @media (max-width: 900px) {
-    nav { padding: 20px 24px; }
-    nav ul { display: none; }
-    .page-header { padding: 120px 24px 60px; }
-    .content-wrapper { padding: 60px 24px 80px; }
-    .rights-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 20px; text-align: center; }
-  }
+/* ── RESPONSIVE ── */
+@media (max-width: 780px) {
+  nav    { padding: 18px 20px; }
+  .page-header { padding: 56px 20px 48px; }
+  .toc-wrapper { padding: 32px 20px 0; }
+  .content     { padding: 48px 20px 80px; }
+  footer       { padding: 36px 20px; flex-direction: column; text-align: center; }
+  .rights-grid { grid-template-columns: 1fr; }
+  .toc ol      { columns: 1; }
+}
 </style>
 </head>
 <body>
 
-<!-- Cursor -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo">A<span>u</span>ra</a>
-  <ul>
-    <li><a href="index.html#concept">Concept</a></li>
-    <li><a href="index.html#features">Fonctionnalités</a></li>
-    <li><a href="index.html#pricing">Tarif</a></li>
-    <li><a href="privacy.html" class="active">Confidentialité</a></li>
-  </ul>
-  <a href="index.html#pricing" class="nav-cta">Rejoindre</a>
+  <a href="index.html" class="logo">A<em>u</em>ra</a>
+  <a href="index.html" class="nav-back">Retour à l'accueil</a>
 </nav>
 
-<!-- PAGE HEADER -->
+<!-- HEADER -->
 <div class="page-header">
-  <div class="page-eyebrow">Légal & Transparence</div>
-  <h1>Politique de<br><em>confidentialité.</em></h1>
-  <p class="meta">Dernière mise à jour : mars 2025 &nbsp;·&nbsp; Application : AURA Dating</p>
+  <div class="eyebrow">Légal · RGPD</div>
+  <h1>Politique de <em>confidentialité.</em></h1>
+  <p class="meta">Version 1.0 — Entrée en vigueur : mars 2025 &nbsp;·&nbsp; Application : <strong>AURA Dating</strong> (iOS &amp; Android)</p>
+</div>
+
+<!-- TOC -->
+<div class="toc-wrapper">
+  <div class="toc">
+    <div class="toc-title">Table des matières</div>
+    <ol>
+      <li><a href="#s1">Responsable du traitement</a></li>
+      <li><a href="#s2">Données collectées</a></li>
+      <li><a href="#s3">Finalité du traitement</a></li>
+      <li><a href="#s4">Base légale</a></li>
+      <li><a href="#s5">Stockage &amp; sécurité</a></li>
+      <li><a href="#s6">Partage des données</a></li>
+      <li><a href="#s7">Notifications push</a></li>
+      <li><a href="#s8">Transferts hors UE</a></li>
+      <li><a href="#s9">Durée de conservation</a></li>
+      <li><a href="#s10">Vos droits RGPD</a></li>
+      <li><a href="#s11">Suppression du compte</a></li>
+      <li><a href="#s12">Mineurs</a></li>
+      <li><a href="#s13">Modifications</a></li>
+      <li><a href="#s14">Contact</a></li>
+    </ol>
+  </div>
 </div>
 
 <!-- CONTENT -->
-<main class="content-wrapper">
+<main class="content">
 
-  <div class="intro-block">
-    Chez AURA, votre vie privée est une priorité absolue. Cette politique de confidentialité explique quelles données nous collectons, pourquoi, comment elles sont stockées et protégées, et quels droits vous exercez à tout moment. AURA est conforme au Règlement Général sur la Protection des Données (RGPD — UE 2016/679).
+  <div class="box box-info">
+    <span class="box-icon">🔒</span>
+    <p>
+      Chez AURA, votre vie privée est une priorité absolue.
+      Cette politique explique de façon transparente quelles données nous traitons,
+      pourquoi, et comment vous exercez vos droits à tout moment.
+      AURA est conforme au <strong>Règlement Général sur la Protection des Données (RGPD — UE 2016/679)</strong>
+      et aux exigences de confidentialité de Google Play et de l'App Store.
+    </p>
   </div>
 
-  <!-- 1. DONNÉES COLLECTÉES -->
-  <div class="policy-section">
+  <!-- 01 -->
+  <div class="section" id="s1">
     <div class="section-num">01</div>
-    <h2>Données collectées</h2>
-    <p>Lors de votre inscription et de l'utilisation de l'application AURA, nous collectons les catégories de données suivantes :</p>
+    <h2>Responsable du traitement</h2>
+    <p>
+      Le responsable du traitement des données personnelles collectées via l'application
+      AURA Dating est <strong>AURA SAS</strong>, société dont le siège social est en France.
+    </p>
+    <p>
+      Pour toute question relative à la protection de vos données, vous pouvez nous
+      contacter à l'adresse suivante :
+      <a href="mailto:contact@aura-dating.app">contact@aura-dating.app</a>
+    </p>
+  </div>
 
-    <table class="data-table">
+  <!-- 02 -->
+  <div class="section" id="s2">
+    <div class="section-num">02</div>
+    <h2>Données collectées</h2>
+    <p>Lors de votre inscription et de l'utilisation d'AURA, nous collectons les catégories de données suivantes :</p>
+
+    <table>
       <thead>
         <tr>
           <th>Catégorie</th>
-          <th>Données</th>
+          <th>Données collectées</th>
           <th>Obligatoire</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Identité</td>
-          <td>Nom, date de naissance, genre</td>
+          <td><strong>Identité</strong></td>
+          <td>Nom d'affichage, date de naissance, genre</td>
           <td>Oui</td>
         </tr>
         <tr>
-          <td>Photos</td>
-          <td>Photos de profil téléchargées par l'utilisateur</td>
+          <td><strong>Photos</strong></td>
+          <td>Photos de profil téléversées par l'utilisateur</td>
           <td>Oui (min. 1)</td>
         </tr>
         <tr>
-          <td>Localisation</td>
-          <td>Position GPS en temps réel ou approximative, utilisée pour afficher des profils à proximité</td>
+          <td><strong>Localisation</strong></td>
+          <td>Position GPS en temps réel ou approximative, permettant d'afficher des profils à proximité</td>
           <td>Oui</td>
         </tr>
         <tr>
-          <td>Messages</td>
+          <td><strong>Messages</strong></td>
           <td>Contenu des conversations entre utilisateurs matchés</td>
           <td>Fonctionnel</td>
         </tr>
         <tr>
-          <td>Paiement</td>
-          <td>Données de paiement traitées par Stripe (numéro de carte, expiration, CVV — jamais stockés par AURA)</td>
-          <td>Oui (accès)</td>
+          <td><strong>Compatibilité</strong></td>
+          <td>Réponses aux 12 questions de valeurs et de mode de vie utilisées pour calculer le score de compatibilité</td>
+          <td>Oui</td>
         </tr>
         <tr>
-          <td>Utilisation</td>
-          <td>Interactions dans l'app (likes, vues de profil, sessions), logs techniques</td>
+          <td><strong>Vérification d'identité</strong></td>
+          <td>Photo de pièce d'identité officielle et selfie en temps réel pour l'obtention du badge « AURA Vérifié »</td>
+          <td>Pour le badge</td>
+        </tr>
+        <tr>
+          <td><strong>Paiement</strong></td>
+          <td>Données de paiement traitées exclusivement par Stripe (numéro de carte, date d'expiration, CVV — <strong>jamais stockées par AURA</strong>)</td>
+          <td>Pour l'accès complet</td>
+        </tr>
+        <tr>
+          <td><strong>Utilisation</strong></td>
+          <td>Interactions dans l'app (likes, vues de profil, durée de session), journaux techniques, identifiants d'appareils</td>
           <td>Automatique</td>
         </tr>
         <tr>
-          <td>Notifications</td>
-          <td>Token Expo Push Notifications pour l'envoi de notifications (si activées)</td>
+          <td><strong>Notifications</strong></td>
+          <td>Token Expo Push Notifications pour l'envoi de notifications (si l'autorisation est accordée)</td>
           <td>Optionnel</td>
         </tr>
       </tbody>
     </table>
 
-    <div class="highlight-box">
-      <span class="highlight-icon">🔞</span>
-      <p><strong style="color: var(--white);">Âge minimum requis : 18 ans.</strong> En vous inscrivant sur AURA, vous certifiez être majeur. Tout compte d'une personne mineure sera supprimé immédiatement à notre connaissance.</p>
+    <div class="box box-gold">
+      <span class="box-icon">🔞</span>
+      <p>
+        <strong>Âge minimum requis : 18 ans.</strong>
+        En créant un compte, vous certifiez être majeur.
+        Tout compte appartenant à une personne mineure sera supprimé immédiatement
+        dès que nous en aurons connaissance. Voir la section 12.
+      </p>
     </div>
   </div>
 
-  <!-- 2. FINALITÉ -->
-  <div class="policy-section">
-    <div class="section-num">02</div>
-    <h2>Finalité du traitement</h2>
-    <p>Vos données sont traitées exclusivement pour les finalités suivantes :</p>
-    <ul class="partner-list">
-      <li><span><strong>Mise en relation entre utilisateurs</strong> — afficher des profils compatibles selon votre localisation GPS et votre score de compatibilité issu des 12 questions de valeurs.</span></li>
-      <li><span><strong>Vérification d'identité</strong> — s'assurer de l'authenticité des profils via la vérification par pièce d'identité et selfie en temps réel pour l'attribution du badge AURA Vérifié.</span></li>
-      <li><span><strong>Traitement du paiement unique</strong> — encaisser le paiement de 14,99 € (offre fondateur, accès à vie) via Stripe de manière sécurisée.</span></li>
-      <li><span><strong>Fonctionnement du service</strong> — permettre les échanges de messages entre utilisateurs matchés, envoyer des notifications push et assurer la sécurité de la plateforme.</span></li>
-    </ul>
-    <p>Aucune donnée n'est utilisée à des fins publicitaires, de profilage commercial ou de revente.</p>
-  </div>
-
-  <!-- 3. STOCKAGE -->
-  <div class="policy-section">
+  <!-- 03 -->
+  <div class="section" id="s3">
     <div class="section-num">03</div>
-    <h2>Stockage & sécurité</h2>
-    <p>Vos données sont hébergées sur des serveurs situés dans l'Union Européenne :</p>
-    <ul class="partner-list">
-      <li><span><strong>Supabase (UE)</strong> — base de données principale hébergeant vos informations de profil, photos, messages et données d'utilisation. Supabase est conforme au RGPD et certifié SOC 2 Type II.</span></li>
-      <li><span><strong>Stripe</strong> — traitement des paiements. AURA ne stocke jamais vos données bancaires. Stripe est certifié PCI DSS Level 1, le standard de sécurité le plus élevé pour les paiements en ligne.</span></li>
+    <h2>Finalité du traitement</h2>
+    <p>Vos données personnelles sont traitées <strong>exclusivement</strong> pour les finalités suivantes :</p>
+    <ul class="list">
+      <li><span><strong>Mise en relation entre utilisateurs</strong> — suggérer des profils compatibles selon la localisation GPS et le score de compatibilité issu des 12 questions de valeurs.</span></li>
+      <li><span><strong>Vérification d'identité</strong> — contrôler l'authenticité des profils via la pièce d'identité et le selfie en temps réel, afin d'éliminer les faux profils.</span></li>
+      <li><span><strong>Traitement du paiement unique</strong> — encaisser de manière sécurisée le paiement de 14,99 € (offre fondateur, accès à vie) via Stripe.</span></li>
+      <li><span><strong>Fonctionnement du service</strong> — permettre les échanges de messages entre utilisateurs matchés, envoyer des notifications push et assurer la sécurité de la plateforme.</span></li>
+      <li><span><strong>Amélioration du service</strong> — analyser les données d'utilisation de façon agrégée et anonymisée pour améliorer les fonctionnalités.</span></li>
+      <li><span><strong>Obligations légales</strong> — répondre aux exigences légales et réglementaires applicables.</span></li>
     </ul>
-    <p>Les données sont chiffrées en transit (TLS 1.3) et au repos. L'accès aux données est restreint aux membres de l'équipe AURA selon le principe du moindre privilège.</p>
-  </div>
-
-  <!-- 4. PARTAGE DES DONNÉES -->
-  <div class="policy-section">
-    <div class="section-num">04</div>
-    <h2>Partage des données</h2>
-
-    <div class="highlight-box">
-      <span class="highlight-icon">✦</span>
-      <p>AURA ne vend, ne loue et ne partage jamais vos données personnelles avec des tiers à des fins commerciales ou publicitaires.</p>
+    <div class="box box-gold">
+      <span class="box-icon">✦</span>
+      <p>
+        <strong>Aucune donnée n'est utilisée à des fins publicitaires,
+        de profilage commercial ou de revente.</strong>
+        AURA ne monétise pas vos données personnelles.
+      </p>
     </div>
-
-    <p>Vos données ne sont transmises qu'aux sous-traitants techniques strictement nécessaires au fonctionnement du service :</p>
-    <ul class="partner-list">
-      <li><span><strong>Supabase Inc.</strong> — hébergement et base de données (DPA conforme RGPD disponible sur demande).</span></li>
-      <li><span><strong>Stripe Inc.</strong> — traitement sécurisé du paiement unique de 14,99 €.</span></li>
-      <li><span><strong>Expo (Notifications Push)</strong> — envoi de notifications push via le service Expo Push Notifications. Seul le token de notification est transmis ; aucun contenu de message n'est partagé.</span></li>
-    </ul>
-    <p>En cas d'obligation légale (décision de justice, injonction d'autorité compétente), AURA peut être contraint de divulguer certaines données. Nous vous en informerons dans la mesure du possible.</p>
   </div>
 
-  <!-- 5. NOTIFICATIONS PUSH -->
-  <div class="policy-section">
+  <!-- 04 -->
+  <div class="section" id="s4">
+    <div class="section-num">04</div>
+    <h2>Base légale du traitement</h2>
+    <p>Conformément au RGPD, chaque traitement repose sur une base légale :</p>
+    <table>
+      <thead>
+        <tr><th>Traitement</th><th>Base légale (RGPD)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Profil, localisation, matchs, messages</td><td>Exécution du contrat (art. 6.1.b)</td></tr>
+        <tr><td>Vérification d'identité</td><td>Intérêt légitime — sécurité de la plateforme (art. 6.1.f)</td></tr>
+        <tr><td>Paiement</td><td>Exécution du contrat (art. 6.1.b)</td></tr>
+        <tr><td>Notifications push</td><td>Consentement (art. 6.1.a) — révocable à tout moment</td></tr>
+        <tr><td>Amélioration du service (données agrégées)</td><td>Intérêt légitime (art. 6.1.f)</td></tr>
+        <tr><td>Obligations légales (comptabilité, contentieux)</td><td>Obligation légale (art. 6.1.c)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 05 -->
+  <div class="section" id="s5">
     <div class="section-num">05</div>
+    <h2>Stockage &amp; sécurité</h2>
+    <p>Vos données sont hébergées sur des serveurs situés dans l'<strong>Union Européenne</strong> :</p>
+    <ul class="list">
+      <li><span><strong>Supabase (UE)</strong> — base de données principale hébergeant les informations de profil, photos, messages et données d'utilisation. Supabase est conforme au RGPD, certifié SOC 2 Type II et ISO 27001.</span></li>
+      <li><span><strong>Stripe</strong> — traitement des paiements. AURA ne stocke jamais vos données bancaires. Stripe est certifié <strong>PCI DSS Level 1</strong>, le niveau de sécurité le plus élevé pour les paiements en ligne.</span></li>
+    </ul>
+    <p>Mesures de sécurité appliquées :</p>
+    <ul class="list">
+      <li><span>Chiffrement des données <strong>en transit</strong> (TLS 1.3)</span></li>
+      <li><span>Chiffrement des données <strong>au repos</strong> (AES-256)</span></li>
+      <li><span>Accès aux données restreint selon le principe du <strong>moindre privilège</strong></span></li>
+      <li><span>Authentification à deux facteurs pour l'accès aux systèmes internes</span></li>
+      <li><span>Journaux d'accès et audits réguliers</span></li>
+    </ul>
+  </div>
+
+  <!-- 06 -->
+  <div class="section" id="s6">
+    <div class="section-num">06</div>
+    <h2>Partage des données</h2>
+    <div class="box box-gold">
+      <span class="box-icon">✦</span>
+      <p>
+        <strong>AURA ne vend, ne loue et ne partage jamais vos données personnelles
+        avec des tiers à des fins commerciales ou publicitaires.</strong>
+      </p>
+    </div>
+    <p>Vos données ne sont transmises qu'aux sous-traitants techniques strictement nécessaires au fonctionnement du service, liés à AURA par un accord de traitement des données (DPA) conforme au RGPD :</p>
+    <table>
+      <thead>
+        <tr><th>Sous-traitant</th><th>Rôle</th><th>Localisation</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Supabase Inc.</strong></td>
+          <td>Hébergement de la base de données et du stockage de fichiers</td>
+          <td>UE (AWS eu-west)</td>
+        </tr>
+        <tr>
+          <td><strong>Stripe Inc.</strong></td>
+          <td>Traitement sécurisé du paiement unique de 14,99 €</td>
+          <td>UE / États-Unis (SCC)</td>
+        </tr>
+        <tr>
+          <td><strong>Expo (Notification Services)</strong></td>
+          <td>Acheminement des notifications push (seul le token est transmis)</td>
+          <td>États-Unis (SCC)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      En cas d'obligation légale (décision de justice, injonction d'une autorité compétente),
+      AURA peut être contraint de communiquer certaines données. Nous vous en informerons
+      dans la mesure où la loi nous le permet.
+    </p>
+  </div>
+
+  <!-- 07 -->
+  <div class="section" id="s7">
+    <div class="section-num">07</div>
     <h2>Notifications push</h2>
-    <p>AURA utilise le service <strong style="color: var(--white);">Expo Push Notifications</strong> pour vous envoyer des alertes (nouveau match, message reçu, etc.). Ces notifications sont entièrement optionnelles.</p>
+    <p>
+      AURA utilise le service <strong>Expo Push Notifications</strong> pour vous envoyer
+      des alertes (nouveau match, message reçu, rappels). Ces notifications sont
+      <strong>entièrement optionnelles</strong>.
+    </p>
     <p>Vous pouvez révoquer l'autorisation à tout moment :</p>
-    <ul class="partner-list">
-      <li><span>Depuis les <strong>paramètres de l'application AURA</strong> → Notifications → Désactiver.</span></li>
-      <li><span>Depuis les <strong>paramètres système</strong> de votre appareil iOS ou Android.</span></li>
+    <ul class="list">
+      <li><span>Depuis l'app : <strong>Paramètres → Notifications → Désactiver</strong></span></li>
+      <li><span>Sur iOS : <strong>Réglages → AURA → Notifications</strong></span></li>
+      <li><span>Sur Android : <strong>Paramètres → Applications → AURA → Notifications</strong></span></li>
     </ul>
     <p>La désactivation des notifications n'affecte pas l'accès aux fonctionnalités de l'application.</p>
   </div>
 
-  <!-- 6. DROITS RGPD -->
-  <div class="policy-section">
-    <div class="section-num">06</div>
-    <h2>Vos droits RGPD</h2>
-    <p>Conformément au RGPD, vous disposez des droits suivants sur vos données personnelles, exerçables directement depuis l'application ou par email :</p>
+  <!-- 08 -->
+  <div class="section" id="s8">
+    <div class="section-num">08</div>
+    <h2>Transferts hors Union Européenne</h2>
+    <p>
+      Certains sous-traitants (Stripe, Expo) peuvent transférer des données vers des pays
+      hors de l'UE. Ces transferts sont encadrés par les <strong>Clauses Contractuelles Types (SCC)</strong>
+      approuvées par la Commission européenne, conformément à l'article 46 du RGPD.
+    </p>
+    <p>
+      Les données hébergées sur Supabase restent dans l'UE.
+      Aucune donnée de profil, photo ou message n'est transférée hors de l'UE.
+    </p>
+  </div>
 
+  <!-- 09 -->
+  <div class="section" id="s9">
+    <div class="section-num">09</div>
+    <h2>Durée de conservation</h2>
+    <table>
+      <thead>
+        <tr><th>Catégorie de données</th><th>Durée de conservation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Profil, photos, messages, matchs</td><td>Durée de vie du compte actif</td></tr>
+        <tr><td>Données de localisation</td><td>Session active uniquement (non archivées)</td></tr>
+        <tr><td>Journaux techniques</td><td>90 jours glissants</td></tr>
+        <tr><td>Données de paiement (Stripe)</td><td>5 ans (obligation légale comptable française)</td></tr>
+        <tr><td>Données après suppression du compte</td><td>Suppression définitive sous 30 jours</td></tr>
+        <tr><td>Données agrégées / anonymisées</td><td>Indéfiniment (non liées à une identité)</td></tr>
+      </tbody>
+    </table>
+    <p>
+      En cas d'inactivité prolongée (plus de 24 mois sans connexion), nous vous contacterons
+      par email avant toute suppression automatique.
+    </p>
+  </div>
+
+  <!-- 10 -->
+  <div class="section" id="s10">
+    <div class="section-num">10</div>
+    <h2>Vos droits RGPD</h2>
+    <p>
+      Conformément au RGPD (articles 15 à 22), vous disposez des droits suivants sur vos
+      données personnelles. Ils sont exerçables gratuitement depuis l'application ou par email.
+    </p>
     <div class="rights-grid">
       <div class="right-card">
         <span class="right-card-icon">◉</span>
         <h3>Droit d'accès</h3>
-        <p>Obtenir une copie de toutes les données personnelles que nous détenons sur vous.</p>
+        <p>Obtenir une copie complète de toutes les données personnelles que nous détenons sur vous (art. 15).</p>
       </div>
       <div class="right-card">
         <span class="right-card-icon">✎</span>
         <h3>Droit de rectification</h3>
-        <p>Corriger ou mettre à jour vos informations inexactes ou incomplètes.</p>
+        <p>Corriger ou compléter vos informations inexactes ou incomplètes (art. 16).</p>
       </div>
       <div class="right-card">
         <span class="right-card-icon">✕</span>
         <h3>Droit à l'effacement</h3>
-        <p>Demander la suppression définitive de toutes vos données (voir section 7).</p>
+        <p>Demander la suppression définitive de l'ensemble de vos données (art. 17). Voir section 11.</p>
       </div>
       <div class="right-card">
         <span class="right-card-icon">⬡</span>
         <h3>Droit à la portabilité</h3>
-        <p>Recevoir vos données dans un format structuré et lisible par machine.</p>
+        <p>Recevoir vos données dans un format structuré, courant et lisible par machine (art. 20).</p>
       </div>
       <div class="right-card">
         <span class="right-card-icon">◈</span>
         <h3>Droit d'opposition</h3>
-        <p>Vous opposer à un traitement spécifique de vos données dans les cas prévus par la loi.</p>
+        <p>Vous opposer au traitement de vos données dans les cas prévus par la loi (art. 21).</p>
       </div>
       <div class="right-card">
         <span class="right-card-icon">⏸</span>
         <h3>Droit à la limitation</h3>
-        <p>Demander la suspension temporaire du traitement de vos données pendant un litige.</p>
+        <p>Demander la suspension temporaire du traitement de vos données pendant un litige (art. 18).</p>
       </div>
     </div>
-
-    <p>Ces droits sont exercables via le bouton dédié dans les paramètres de l'app (<strong style="color: var(--white);">Paramètres → Mes données → Exercer mes droits</strong>) ou par email à l'adresse indiquée en section 9.</p>
-    <p>Vous avez également le droit d'introduire une réclamation auprès de la <strong style="color: var(--white);">CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) : <em>cnil.fr</em>.</p>
+    <p>
+      Comment exercer vos droits : <strong>Paramètres → Mes données → Exercer mes droits</strong>,
+      ou par email à <a href="mailto:contact@aura-dating.app">contact@aura-dating.app</a>.
+      Délai de réponse : <strong>30 jours maximum</strong> (art. 12 RGPD).
+    </p>
+    <p>
+      Vous avez également le droit d'introduire une réclamation auprès de la
+      <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) :
+      <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>
+    </p>
   </div>
 
-  <!-- 7. SUPPRESSION DE COMPTE -->
-  <div class="policy-section">
-    <div class="section-num">07</div>
-    <h2>Suppression de compte</h2>
-
-    <div class="highlight-box">
-      <span class="highlight-icon">🗑</span>
-      <p>Sur simple demande, <strong style="color: var(--white);">toutes vos données sont supprimées définitivement et irréversiblement</strong> de nos serveurs dans un délai de 30 jours.</p>
+  <!-- 11 -->
+  <div class="section" id="s11">
+    <div class="section-num">11</div>
+    <h2>Suppression du compte</h2>
+    <div class="box box-warning">
+      <span class="box-icon">⚠</span>
+      <p>
+        La suppression du compte est <strong>définitive et irréversible</strong>.
+        Toutes vos données seront supprimées sous <strong>30 jours</strong>.
+      </p>
     </div>
-
-    <p>La suppression comprend :</p>
-    <ul class="partner-list">
-      <li><span>Votre profil, photos, informations d'identité et de localisation.</span></li>
-      <li><span>L'ensemble de vos conversations et messages.</span></li>
-      <li><span>Vos likes, matchs et données d'utilisation.</span></li>
-      <li><span>Votre token de notification push.</span></li>
+    <p>La suppression efface définitivement :</p>
+    <ul class="list">
+      <li><span>Profil, photos, nom, date de naissance, genre</span></li>
+      <li><span>Historique de localisation GPS</span></li>
+      <li><span>Toutes les conversations et messages</span></li>
+      <li><span>Likes, matchs et données d'interaction</span></li>
+      <li><span>Réponses aux questions de compatibilité</span></li>
+      <li><span>Token de notification push</span></li>
     </ul>
-    <p>Certaines données peuvent être conservées sous forme anonymisée ou agrégée pour des finalités statistiques internes (sans lien possible avec votre identité). Les données de paiement sont conservées par Stripe selon leurs obligations légales propres.</p>
-    <p>Pour supprimer votre compte : <strong style="color: var(--white);">Paramètres → Mon compte → Supprimer mon compte</strong>, ou par email à notre adresse de contact.</p>
+    <p><strong>Comment supprimer votre compte :</strong></p>
+    <ul class="list">
+      <li><span>Depuis l'app : <strong>Paramètres → Mon compte → Supprimer mon compte</strong></span></li>
+      <li><span>Par email : <a href="mailto:contact@aura-dating.app?subject=Demande%20de%20suppression%20de%20compte">contact@aura-dating.app</a> — objet : « Demande de suppression de compte »</span></li>
+    </ul>
+    <p>
+      Certaines données peuvent être conservées sous forme strictement anonymisée et agrégée
+      à des fins statistiques internes, sans aucun lien possible avec votre identité.
+      Les données de paiement sont conservées par Stripe selon leurs obligations légales.
+    </p>
   </div>
 
-  <!-- 8. DURÉE DE CONSERVATION -->
-  <div class="policy-section">
-    <div class="section-num">08</div>
-    <h2>Durée de conservation</h2>
-    <p>Vos données sont conservées pendant toute la durée de votre compte actif sur AURA. En cas d'inactivité prolongée (plus de 24 mois sans connexion), nous vous contacterons avant toute suppression automatique.</p>
-    <p>Les données de paiement sont conservées par Stripe pendant la durée légale requise (5 ans pour les obligations comptables françaises).</p>
+  <!-- 12 -->
+  <div class="section" id="s12">
+    <div class="section-num">12</div>
+    <h2>Mineurs</h2>
+    <p>
+      L'application AURA est <strong>strictement réservée aux personnes âgées de 18 ans et plus.</strong>
+      Nous ne collectons pas sciemment de données personnelles concernant des mineurs.
+    </p>
+    <p>
+      Si vous êtes un parent ou tuteur légal et que vous pensez que votre enfant mineur a créé
+      un compte sur AURA, contactez-nous immédiatement à
+      <a href="mailto:contact@aura-dating.app">contact@aura-dating.app</a>.
+      Nous procéderons à la suppression du compte dans les meilleurs délais.
+    </p>
+    <p>
+      Lors de l'inscription, les utilisateurs doivent indiquer leur date de naissance.
+      Tout compte pour lequel une date de naissance indiquant un âge inférieur à 18 ans
+      est détectée sera automatiquement bloqué.
+    </p>
   </div>
 
-  <!-- 9. CONTACT -->
-  <div class="policy-section">
-    <div class="section-num">09</div>
-    <h2>Nous contacter</h2>
-    <p>Pour toute question relative à vos données personnelles, pour exercer vos droits RGPD ou pour toute réclamation, contactez notre responsable de la protection des données :</p>
+  <!-- 13 -->
+  <div class="section" id="s13">
+    <div class="section-num">13</div>
+    <h2>Modifications de la politique</h2>
+    <p>
+      AURA se réserve le droit de modifier la présente politique de confidentialité
+      à tout moment pour refléter l'évolution du service, de la réglementation ou de
+      nos pratiques.
+    </p>
+    <p>
+      En cas de modification substantielle, vous serez informé(e) par notification
+      dans l'application et/ou par email <strong>au moins 30 jours avant</strong> l'entrée
+      en vigueur des nouvelles dispositions. La poursuite de l'utilisation du service
+      après cette période vaut acceptation des modifications.
+    </p>
+    <p>
+      La date de la dernière mise à jour est indiquée en en-tête de ce document.
+    </p>
+  </div>
 
+  <!-- 14 -->
+  <div class="section" id="s14">
+    <div class="section-num">14</div>
+    <h2>Contact &amp; réclamations</h2>
+    <p>
+      Pour toute question relative à vos données personnelles, pour exercer vos droits RGPD,
+      signaler un problème ou introduire une réclamation :
+    </p>
     <div class="contact-card">
-      <span class="contact-label">✦ Adresse de contact</span>
+      <span class="contact-label">✦ Responsable de la protection des données</span>
       <a href="mailto:contact@aura-dating.app">contact@aura-dating.app</a>
-      <p>Nous nous engageons à répondre dans un délai de 72 heures ouvrées.</p>
+      <p>Réponse garantie sous 72 heures ouvrées · Du lundi au vendredi</p>
     </div>
+    <p style="margin-top: 24px;">
+      Si vous estimez que vos droits ne sont pas respectés, vous pouvez également
+      adresser une réclamation à l'autorité de contrôle compétente en France :
+    </p>
+    <ul class="list">
+      <li><span><strong>CNIL</strong> — Commission Nationale de l'Informatique et des Libertés<br>3 Place de Fontenoy, 75007 Paris · <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a></span></li>
+    </ul>
   </div>
 
-  <div class="gold-sep"><span>✦</span></div>
+  <div class="sep"><span>✦</span></div>
 
 </main>
 
@@ -547,20 +751,8 @@
 <footer>
   <div class="footer-logo">AURA</div>
   <div class="footer-tagline">« Révèle ton Aura. »</div>
-  <div class="footer-copy">© 2025 AURA — Tous droits réservés</div>
+  <div class="footer-copy">© 2025 AURA Dating — Tous droits réservés<br>Politique de confidentialité v1.0 — mars 2025</div>
 </footer>
 
-<script>
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    setTimeout(() => {
-      ring.style.left = e.clientX + 'px';
-      ring.style.top = e.clientY + 'px';
-    }, 60);
-  });
-</script>
 </body>
 </html>
