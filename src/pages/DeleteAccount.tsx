@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 export default function DeleteAccount() {
+  usePageTitle('Supprimer mon compte')
   return (
     <>
       <div className="page-header">

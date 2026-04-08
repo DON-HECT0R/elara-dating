@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 const FAQ = [
   {
@@ -53,6 +54,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 }
 
 export default function Support() {
+  usePageTitle('Support & FAQ')
   return (
     <>
       <div className="page-header">

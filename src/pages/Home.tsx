@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 function useCountdown(days: number) {
   const [target] = useState(() => {
@@ -28,13 +29,14 @@ function useCountdown(days: number) {
 }
 
 export default function Home() {
+  usePageTitle('')
   const { d, h, m, s } = useCountdown(7)
 
   return (
     <>
       {/* HERO */}
       <section className="hero">
-        <div className="hero-bg" />
+        <div className="hero-bg" aria-hidden="true" />
         <div className="hero-content">
           <div className="hero-eyebrow">Rencontres d'exception</div>
           <h1>
@@ -46,17 +48,17 @@ export default function Home() {
             Pas d'abonnement — un accès à vie pour ceux qui cherchent vraiment.
           </p>
           <div className="hero-ctas">
-            <button className="btn-primary" onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}>
+            <button className="btn-primary" onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })} aria-label="Créer mon profil — accéder à l'offre">
               Créer mon profil
             </button>
-            <button className="btn-ghost" onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}>
-              <span />Découvrir
+            <button className="btn-ghost" onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })} aria-label="Découvrir les fonctionnalités">
+              <span aria-hidden="true" />Découvrir
             </button>
           </div>
         </div>
 
-        {/* Phone Mockup */}
-        <div className="hero-phone">
+        {/* Phone Mockup — decorative illustration */}
+        <div className="hero-phone" aria-hidden="true">
           <div className="likes-bubble">
             <span className="likes-count">24</span>
             <span className="likes-label">likes</span>
@@ -102,20 +104,20 @@ export default function Home() {
         <h2>Conçu pour ceux<br />qui <em>méritent mieux.</em></h2>
         <div className="features-grid">
           <div className="feature-card fade-up">
-            <span className="feature-icon">◉</span>
-            <span className="feature-number">01</span>
+            <span className="feature-icon" aria-hidden="true">◉</span>
+            <span className="feature-number" aria-hidden="true">01</span>
             <h3>Géolocalisation précise</h3>
             <p>Découvrez des profils qui partagent votre quotidien. AURA détecte les personnes que vous croisez réellement, créant des connexions ancrées dans la réalité.</p>
           </div>
           <div className="feature-card fade-up">
-            <span className="feature-icon">✦</span>
-            <span className="feature-number">02</span>
+            <span className="feature-icon" aria-hidden="true">✦</span>
+            <span className="feature-number" aria-hidden="true">02</span>
             <h3>Score de compatibilité</h3>
             <p>12 questions sur vos valeurs et votre mode de vie génèrent un score de compatibilité transparent. Pas d'algorithme opaque — une affinité sincère et mesurable.</p>
           </div>
           <div className="feature-card fade-up">
-            <span className="feature-icon">⬡</span>
-            <span className="feature-number">03</span>
+            <span className="feature-icon" aria-hidden="true">⬡</span>
+            <span className="feature-number" aria-hidden="true">03</span>
             <h3>Identité vérifiée</h3>
             <p>Chaque profil AURA est vérifié par pièce d'identité et selfie en temps réel. Zéro faux profil, zéro bot. Le badge doré est une garantie, pas une option.</p>
           </div>

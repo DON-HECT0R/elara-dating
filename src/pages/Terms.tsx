@@ -1,4 +1,7 @@
+import { usePageTitle } from '../hooks/usePageTitle'
+
 export default function Terms() {
+  usePageTitle("Conditions générales d'utilisation")
   return (
     <>
       <div className="page-header">

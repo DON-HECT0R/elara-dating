@@ -1,4 +1,7 @@
+import { usePageTitle } from '../hooks/usePageTitle'
+
 export default function Privacy() {
+  usePageTitle('Politique de confidentialité')
   return (
     <>
       <div className="page-header">

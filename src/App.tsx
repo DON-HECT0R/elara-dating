@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ErrorBoundary from './components/ErrorBoundary'
 import Cursor from './components/Cursor'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -7,20 +8,24 @@ import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Support from './pages/Support'
 import DeleteAccount from './pages/DeleteAccount'
+import NotFound from './pages/NotFound'
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Cursor />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/support" element={<Support />} />
-        <Route path="/delete-account" element={<DeleteAccount />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Cursor />
+        <Navbar />
+        <Routes>
+          <Route path="/"               element={<Home />} />
+          <Route path="/privacy"        element={<Privacy />} />
+          <Route path="/terms"          element={<Terms />} />
+          <Route path="/support"        element={<Support />} />
+          <Route path="/delete-account" element={<DeleteAccount />} />
+          <Route path="*"               element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </ErrorBoundary>
   )
 }

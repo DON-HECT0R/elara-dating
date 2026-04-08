@@ -636,6 +636,25 @@ footer {
 }
 .warning-box p { margin-bottom: 0; }
 
+/* ─── TOUCH / NO-HOVER: restore native cursor for touch devices ─── */
+@media (hover: none) {
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+
+/* ─── REDUCED MOTION: disable all animations ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hero-phone { opacity: 1; }
+  .hero-content > * { opacity: 1; }
+  .fade-up { opacity: 1; transform: none; }
+  .policy-section { opacity: 1; transform: none; }
+}
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
   nav { padding: 20px 24px; }
