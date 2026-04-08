@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { usePageTitle } from '../hooks/usePageTitle'
+import RegisterModal from '../components/RegisterModal'
+import { APP_STORE_URL, PLAY_STORE_URL } from '../lib/supabase'
 
 function useCountdown(days: number) {
   const [target] = useState(() => {
@@ -31,9 +33,12 @@ function useCountdown(days: number) {
 export default function Home() {
   usePageTitle('')
   const { d, h, m, s } = useCountdown(7)
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <>
+      <RegisterModal open={modalOpen} onClose={() => setModalOpen(false)} />
+
       {/* HERO */}
       <section className="hero">
         <div className="hero-bg" aria-hidden="true" />
@@ -163,7 +168,9 @@ export default function Home() {
             <li>Filtres avancés (valeurs, intentions, mode de vie)</li>
             <li>Accès à vie — aucun abonnement, jamais</li>
           </ul>
-          <button className="btn-gold-full">Débloquer AURA — 14,99€</button>
+          <button className="btn-gold-full" onClick={() => setModalOpen(true)}>
+            Créer mon compte &amp; débloquer AURA — 14,99€
+          </button>
           <div className="secure-note">Paiement sécurisé · Satisfait ou remboursé 7 jours</div>
         </div>
       </section>
@@ -248,17 +255,29 @@ export default function Home() {
         </p>
         <div className="store-buttons">
           {/* App Store */}
-          <a href="#" className="store-btn" aria-label="Télécharger sur l'App Store (bientôt disponible)">
+          <a
+            href={APP_STORE_URL ?? undefined}
+            onClick={!APP_STORE_URL ? (e) => { e.preventDefault(); setModalOpen(true) } : undefined}
+            className="store-btn"
+            aria-label={APP_STORE_URL ? "Télécharger sur l'App Store" : "App Store — rejoindre la liste d'attente"}
+            {...(!APP_STORE_URL && { href: '#' })}
+          >
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
               <path d="M20.5 14.8c0-2.8 2.3-4.1 2.4-4.2-1.3-1.9-3.3-2.1-4-2.2-1.7-.2-3.3 1-4.2 1s-2.2-1-3.6-1c-1.8 0-3.5 1.1-4.5 2.7-1.9 3.3-.5 8.2 1.4 10.9.9 1.3 2 2.8 3.5 2.7 1.4-.1 1.9-.9 3.6-.9s2.1.9 3.6.9 2.5-1.4 3.4-2.7c1.1-1.5 1.5-3 1.5-3.1-.1 0-2.7-1-2.7-4.1zm-2.5-7.5c.8-.9 1.3-2.2 1.1-3.5-1.1.1-2.5.8-3.3 1.7-.7.8-1.4 2.1-1.2 3.4 1.3.1 2.5-.7 3.4-1.6z" fill="#C9A84C"/>
             </svg>
             <div className="store-btn-text">
-              <span className="store-btn-sub">Télécharger sur</span>
+              <span className="store-btn-sub">{APP_STORE_URL ? 'Télécharger sur' : 'Bientôt sur'}</span>
               <span className="store-btn-name">App Store</span>
             </div>
           </a>
           {/* Google Play */}
-          <a href="#" className="store-btn" aria-label="Télécharger sur Google Play (bientôt disponible)">
+          <a
+            href={PLAY_STORE_URL ?? undefined}
+            onClick={!PLAY_STORE_URL ? (e) => { e.preventDefault(); setModalOpen(true) } : undefined}
+            className="store-btn"
+            aria-label={PLAY_STORE_URL ? "Télécharger sur Google Play" : "Google Play — rejoindre la liste d'attente"}
+            {...(!PLAY_STORE_URL && { href: '#' })}
+          >
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
               <path d="M5.5 4.2C5.2 4.5 5 5 5 5.7v16.6c0 .7.2 1.2.5 1.5l.1.1 9.3-9.3v-.2L5.6 4.1l-.1.1z" fill="#C9A84C" opacity=".9"/>
               <path d="M18 17.8l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1 .6 1 1.5 0 2.1L18 17.8z" fill="#C9A84C"/>
@@ -266,12 +285,22 @@ export default function Home() {
               <path d="M18.1 11.3L7 5.1C6.4 4.8 5.9 4.8 5.5 5.2l9.4 9.3 3.2-3.2z" fill="#C9A84C" opacity=".7"/>
             </svg>
             <div className="store-btn-text">
-              <span className="store-btn-sub">Disponible sur</span>
+              <span className="store-btn-sub">{PLAY_STORE_URL ? 'Disponible sur' : 'Bientôt sur'}</span>
               <span className="store-btn-name">Google Play</span>
             </div>
           </a>
         </div>
-        <p className="store-note">Lancement officiel en 2025 · Rejoignez la liste d'attente via l'offre Fondateur</p>
+        {!APP_STORE_URL && !PLAY_STORE_URL && (
+          <p className="store-note">
+            Lancement officiel en 2025 ·{' '}
+            <button
+              style={{ background: 'none', border: 'none', color: 'var(--gold)', cursor: 'none', fontSize: 'inherit', fontFamily: 'inherit', letterSpacing: 'inherit', textDecoration: 'underline' }}
+              onClick={() => setModalOpen(true)}
+            >
+              Réserver ma place dès maintenant
+            </button>
+          </p>
+        )}
       </section>
     </>
   )
