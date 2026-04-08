@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/privacy", "destination": "/privacy.html", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -17,7 +20,7 @@
       ]
     },
     {
-      "source": "/(robots.txt|sitemap.xml|favicon.svg|privacy.html)",
+      "source": "/(robots.txt|sitemap.xml|manifest.json|favicon.svg|og-image.svg|privacy.html)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400" }
       ]

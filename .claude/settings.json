@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(grep -n \"\\\\\\\\.btn\\\\|button\" /c/Users/f_chr/Documents/dev/aura-dating-website/src/index.css)",
-      "Bash(grep -c \"document.title\\\\|setTitle\" /c/Users/f_chr/Documents/dev/aura-dating-website/src/pages/*.tsx)"
+      "Bash(grep -c \"document.title\\\\|setTitle\" /c/Users/f_chr/Documents/dev/aura-dating-website/src/pages/*.tsx)",
+      "Bash(wc -l /c/Users/f_chr/Documents/dev/aura-dating-website/dist/assets/*)"
     ]
   }
 }

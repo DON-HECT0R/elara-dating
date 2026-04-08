@@ -236,6 +236,43 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* APP STORE DOWNLOAD */}
+      <section className="store-section" id="download">
+        <div className="section-label" style={{ justifyContent: 'center' }}>Télécharger</div>
+        <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 300, lineHeight: 1.1, marginBottom: '16px' }}>
+          Disponible sur iOS<br />et <em style={{ fontStyle: 'italic', color: 'var(--gold)' }}>Android.</em>
+        </h2>
+        <p style={{ fontSize: '0.78rem', color: 'var(--white-dim)', lineHeight: 1.9, maxWidth: '400px', margin: '0 auto' }}>
+          Téléchargez AURA gratuitement. Le paiement unique de 14,99€ débloque l'accès complet à vie.
+        </p>
+        <div className="store-buttons">
+          {/* App Store */}
+          <a href="#" className="store-btn" aria-label="Télécharger sur l'App Store (bientôt disponible)">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+              <path d="M20.5 14.8c0-2.8 2.3-4.1 2.4-4.2-1.3-1.9-3.3-2.1-4-2.2-1.7-.2-3.3 1-4.2 1s-2.2-1-3.6-1c-1.8 0-3.5 1.1-4.5 2.7-1.9 3.3-.5 8.2 1.4 10.9.9 1.3 2 2.8 3.5 2.7 1.4-.1 1.9-.9 3.6-.9s2.1.9 3.6.9 2.5-1.4 3.4-2.7c1.1-1.5 1.5-3 1.5-3.1-.1 0-2.7-1-2.7-4.1zm-2.5-7.5c.8-.9 1.3-2.2 1.1-3.5-1.1.1-2.5.8-3.3 1.7-.7.8-1.4 2.1-1.2 3.4 1.3.1 2.5-.7 3.4-1.6z" fill="#C9A84C"/>
+            </svg>
+            <div className="store-btn-text">
+              <span className="store-btn-sub">Télécharger sur</span>
+              <span className="store-btn-name">App Store</span>
+            </div>
+          </a>
+          {/* Google Play */}
+          <a href="#" className="store-btn" aria-label="Télécharger sur Google Play (bientôt disponible)">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+              <path d="M5.5 4.2C5.2 4.5 5 5 5 5.7v16.6c0 .7.2 1.2.5 1.5l.1.1 9.3-9.3v-.2L5.6 4.1l-.1.1z" fill="#C9A84C" opacity=".9"/>
+              <path d="M18 17.8l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1 .6 1 1.5 0 2.1L18 17.8z" fill="#C9A84C"/>
+              <path d="M18.1 17.7L14.9 14.5 5.5 23.8c.4.4.9.4 1.5.1l11.1-6.2" fill="#C9A84C" opacity=".8"/>
+              <path d="M18.1 11.3L7 5.1C6.4 4.8 5.9 4.8 5.5 5.2l9.4 9.3 3.2-3.2z" fill="#C9A84C" opacity=".7"/>
+            </svg>
+            <div className="store-btn-text">
+              <span className="store-btn-sub">Disponible sur</span>
+              <span className="store-btn-name">Google Play</span>
+            </div>
+          </a>
+        </div>
+        <p className="store-note">Lancement officiel en 2025 · Rejoignez la liste d'attente via l'offre Fondateur</p>
+      </section>
     </>
   )
 }

@@ -1,0 +1,20 @@
+{
+  "name": "AURA Dating",
+  "short_name": "AURA",
+  "description": "La première app de rencontre authentique, vérifiée, et méritée. Accès à vie pour 14,99€.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#080810",
+  "theme_color": "#080810",
+  "lang": "fr",
+  "categories": ["social", "lifestyle"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ]
+}

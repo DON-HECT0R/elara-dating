@@ -8,10 +8,11 @@ export default function Footer() {
         <a href="/privacy.html">Confidentialité</a>
         <Link to="/terms">CGU</Link>
         <Link to="/support">Support</Link>
+        <Link to="/contact">Contact</Link>
         <Link to="/delete-account">Supprimer mon compte</Link>
       </div>
       <div className="footer-tagline">« Révèle ton Aura. »</div>
-      <div className="footer-copy">© 2025 AURA — Tous droits réservés</div>
+      <div className="footer-copy">© {new Date().getFullYear()} AURA — Tous droits réservés</div>
     </footer>
   )
 }

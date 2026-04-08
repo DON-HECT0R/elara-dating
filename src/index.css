@@ -655,18 +655,185 @@ footer {
   .policy-section { opacity: 1; transform: none; }
 }
 
+/* ─── FOCUS STYLES (keyboard navigation / WCAG AA) ─── */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+button:focus-visible, a:focus-visible, [role="button"]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ─── PAGE LOADING FALLBACK (lazy routes) ─── */
+.page-loading {
+  min-height: 60vh; display: flex; align-items: center; justify-content: center;
+}
+.page-loading::after {
+  content: '✦';
+  font-size: 1.5rem; color: var(--gold);
+  animation: spin 1.5s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── HAMBURGER BUTTON ─── */
+.hamburger {
+  display: none; flex-direction: column; justify-content: center; gap: 5px;
+  background: none; border: none; cursor: none;
+  padding: 8px; z-index: 110; position: relative;
+}
+.hamburger span {
+  display: block; width: 22px; height: 1px;
+  background: var(--gold);
+  transition: transform 0.3s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ─── MOBILE DRAWER ─── */
+.mobile-drawer {
+  position: fixed; inset: 0; z-index: 99;
+  background: rgba(8,8,16,0.98); backdrop-filter: blur(12px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; padding: 40px 24px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.mobile-drawer.open { opacity: 1; pointer-events: all; }
+.drawer-section-label, .drawer-link {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 6vw, 2.4rem); font-weight: 300;
+  color: rgba(245,240,232,0.7); letter-spacing: 0.08em;
+  background: none; border: none; cursor: none; text-decoration: none;
+  padding: 10px 0; display: block; text-align: center;
+  transition: color 0.25s;
+}
+.drawer-section-label:hover, .drawer-link:hover { color: var(--gold); }
+.drawer-cta {
+  margin-top: 24px;
+  background: var(--gold); color: var(--black);
+  font-family: 'Montserrat', sans-serif; font-size: 0.7rem;
+  font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 16px 40px; border: none; cursor: none;
+  transition: background 0.3s;
+}
+.drawer-cta:hover { background: var(--gold-light); }
+
+/* ─── APP STORE SECTION ─── */
+.store-section {
+  padding: 100px 48px; text-align: center;
+  background: linear-gradient(180deg, var(--black) 0%, #0a0a14 100%);
+}
+.store-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 48px; }
+.store-btn {
+  display: flex; align-items: center; gap: 14px;
+  border: 1px solid rgba(201,168,76,0.3); background: rgba(201,168,76,0.04);
+  padding: 16px 28px; text-decoration: none; color: var(--white);
+  transition: border-color 0.3s, background 0.3s; min-width: 200px;
+}
+.store-btn:hover { border-color: rgba(201,168,76,0.7); background: rgba(201,168,76,0.08); }
+.store-btn-text { text-align: left; }
+.store-btn-sub {
+  font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--white-dim); display: block; margin-bottom: 2px;
+}
+.store-btn-name {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+  font-weight: 400; letter-spacing: 0.05em;
+}
+.store-note {
+  font-size: 0.62rem; letter-spacing: 0.1em; color: rgba(245,240,232,0.28);
+  margin-top: 24px;
+}
+
+/* ─── CONTACT PAGE ─── */
+.contact-topics { display: flex; flex-direction: column; gap: 2px; margin-bottom: 48px; }
+.contact-topic {
+  display: flex; gap: 28px; align-items: flex-start;
+  padding: 36px 32px;
+  background: var(--black2); border: 1px solid rgba(201,168,76,0.08);
+  opacity: 0; transform: translateY(16px); animation: fadeUp 0.7s ease forwards;
+  transition: border-color 0.3s;
+}
+.contact-topic:hover { border-color: rgba(201,168,76,0.25); }
+.contact-topic-icon { font-size: 1.3rem; color: var(--gold); flex-shrink: 0; margin-top: 4px; }
+.contact-topic-body h2 {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 8px;
+}
+.contact-topic-body p {
+  font-size: 0.75rem; line-height: 1.9; color: var(--white-dim); margin-bottom: 14px;
+}
+.contact-topic-link {
+  font-size: 0.7rem; letter-spacing: 0.06em; color: var(--gold);
+  text-decoration: none; transition: color 0.25s;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.contact-topic-link:hover { color: var(--gold-light); }
+
+/* ─── COOKIE BANNER ─── */
+.cookie-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+  background: var(--black2); border-top: 1px solid rgba(201,168,76,0.15);
+  padding: 16px 48px;
+  animation: slideUp 0.4s ease;
+}
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.cookie-content {
+  max-width: 960px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+}
+.cookie-text {
+  font-size: 0.68rem; line-height: 1.7; color: var(--white-dim); margin: 0;
+}
+.cookie-text a { color: var(--gold); text-decoration: none; }
+.cookie-text a:hover { text-decoration: underline; }
+.cookie-btn {
+  flex-shrink: 0; background: var(--gold); color: var(--black);
+  font-family: 'Montserrat', sans-serif; font-size: 0.6rem;
+  font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 10px 24px; border: none; cursor: none; white-space: nowrap;
+  transition: background 0.25s;
+}
+.cookie-btn:hover { background: var(--gold-light); }
+
+/* ─── PRINT ─── */
+@media print {
+  nav, .cursor, .cursor-ring, .hero-bg, .hero-phone,
+  .cookie-banner, .mobile-drawer, .hamburger { display: none !important; }
+  body { background: #fff; color: #111; cursor: auto; font-size: 12pt; }
+  a { color: #000; text-decoration: underline; }
+  .page-header { padding: 20pt 0 12pt; border-bottom: 1pt solid #ccc; }
+  .page-header h1 { font-size: 22pt; }
+  .content-wrapper { padding: 12pt 0; max-width: 100%; }
+  .policy-section { page-break-inside: avoid; margin-bottom: 20pt; opacity: 1; transform: none; }
+  .policy-section h2 { font-size: 14pt; }
+  .policy-section p { font-size: 10pt; color: #333; }
+  .data-table { font-size: 9pt; }
+  .rights-grid { display: block; }
+  .right-card { page-break-inside: avoid; border: 1pt solid #ccc; margin-bottom: 8pt; }
+  footer { display: none; }
+}
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
   nav { padding: 20px 24px; }
   nav ul { display: none; }
+  .hamburger { display: flex; }
+  .nav-cta { display: none; }
   .hero { padding: 0 24px; padding-top: 100px; min-height: auto; padding-bottom: 60px; }
   .hero-phone { display: none; }
   .section { padding: 80px 24px; }
   .features-grid { grid-template-columns: 1fr; }
   .pricing-section { padding: 80px 24px; }
   .screens-section { padding: 80px 24px; }
+  .store-section { padding: 64px 24px; }
   footer { padding: 40px 24px; }
   .page-header { padding: 120px 24px 60px; }
   .content-wrapper { padding: 60px 24px 80px; }
   .rights-grid { grid-template-columns: 1fr; }
+  .contact-topic { flex-direction: column; gap: 12px; padding: 24px; }
+  .cookie-banner { padding: 16px 20px; }
 }

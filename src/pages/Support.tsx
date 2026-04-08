@@ -72,8 +72,8 @@ export default function Support() {
           <div className="section-num">FAQ</div>
           <h2>Questions<br /><em>fréquentes.</em></h2>
           <div className="faq-list">
-            {FAQ.map((item, i) => (
-              <FaqItem key={i} q={item.q} a={item.a} />
+            {FAQ.map((item) => (
+              <FaqItem key={item.q} q={item.q} a={item.a} />
             ))}
           </div>
         </div>
