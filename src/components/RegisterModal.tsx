@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef, type FormEvent } from 'react'
-import { supabase, STRIPE_LINK } from '../lib/supabase'
+import { supabase, APP_STORE_URL, PLAY_STORE_URL } from '../lib/supabase'
 
 interface Props {
   open: boolean
   onClose: () => void
 }
 
-type Step = 'form' | 'loading' | 'success' | 'payment'
+type Step = 'form' | 'loading' | 'success'
 
 export default function RegisterModal({ open, onClose }: Props) {
   const [step, setStep]     = useState<Step>('form')
@@ -37,6 +37,10 @@ export default function RegisterModal({ open, onClose }: Props) {
   const handleClose = () => {
     if (step === 'loading') return
     setStep('form')
+    setEmail('')
+    setPrenom('')
+    setPwd('')
+    setPwd2('')
     setError('')
     onClose()
   }
@@ -69,16 +73,10 @@ export default function RegisterModal({ open, onClose }: Props) {
           return
         }
       }
-      setStep(STRIPE_LINK ? 'payment' : 'success')
+      setStep('success')
     } catch {
       setError('Une erreur est survenue. Réessayez.')
       setStep('form')
-    }
-  }
-
-  const goToPayment = () => {
-    if (STRIPE_LINK) {
-      window.location.href = STRIPE_LINK + `?prefilled_email=${encodeURIComponent(email)}`
     }
   }
 
@@ -99,13 +97,13 @@ export default function RegisterModal({ open, onClose }: Props) {
         {/* STEP — FORM */}
         {(step === 'form' || step === 'loading') && (
           <>
-            <div className="modal-eyebrow">Offre Fondateur · 14,99€</div>
+            <div className="modal-eyebrow">Créer votre compte — gratuit</div>
             <h2 id="modal-title" className="modal-title">
-              Créer votre <em>compte AURA.</em>
+              Rejoindre <em>AURA.</em>
             </h2>
             <p className="modal-subtitle">
-              Votre compte est créé sur le web. Téléchargez ensuite l'app et connectez-vous —
-              votre profil sera prêt à configurer.
+              Créez votre compte ici, puis téléchargez l'app et connectez-vous.
+              Le paiement unique s'effectue directement dans l'application.
             </p>
 
             <form onSubmit={handleSubmit} noValidate>
@@ -162,12 +160,7 @@ export default function RegisterModal({ open, onClose }: Props) {
                 className={`btn-gold-full modal-submit${step === 'loading' ? ' loading' : ''}`}
                 disabled={step === 'loading'}
               >
-                {step === 'loading'
-                  ? 'Création du compte…'
-                  : STRIPE_LINK
-                    ? 'Continuer vers le paiement →'
-                    : 'Créer mon compte AURA'
-                }
+                {step === 'loading' ? 'Création du compte…' : 'Créer mon compte AURA'}
               </button>
             </form>
 
@@ -180,46 +173,57 @@ export default function RegisterModal({ open, onClose }: Props) {
           </>
         )}
 
-        {/* STEP — PAYMENT */}
-        {step === 'payment' && (
-          <div className="modal-result">
-            <div className="modal-check">✓</div>
-            <h2 id="modal-title" className="modal-title">Compte créé,{' '}<em>Bienvenue !</em></h2>
-            <p className="modal-subtitle">
-              Bonjour <strong style={{ color: 'var(--white)' }}>{prenom}</strong> ! Votre compte AURA est prêt.
-              Il reste l'étape du paiement unique pour débloquer l'accès complet.
-            </p>
-            <div className="payment-summary">
-              <div className="payment-line">
-                <span>Offre Fondateur — accès à vie</span>
-                <span className="payment-price">14,99€</span>
-              </div>
-              <div className="payment-line payment-sub">
-                <span>Aucun abonnement · Paiement unique · Stripe sécurisé</span>
-              </div>
-            </div>
-            <button className="btn-gold-full" onClick={goToPayment}>
-              Payer 14,99€ — Accès à vie
-            </button>
-            <p className="modal-legal">
-              Satisfait ou remboursé 7 jours · PCI DSS Level 1 · 🔒 Stripe
-            </p>
-          </div>
-        )}
-
-        {/* STEP — SUCCESS (no Stripe configured) */}
+        {/* STEP — SUCCESS */}
         {step === 'success' && (
           <div className="modal-result">
             <div className="modal-check">✓</div>
             <h2 id="modal-title" className="modal-title">Compte créé !{' '}<em>Bienvenue.</em></h2>
             <p className="modal-subtitle">
               Bonjour <strong style={{ color: 'var(--white)' }}>{prenom}</strong> !
-              Un email de confirmation vous a été envoyé à <strong style={{ color: 'var(--white)' }}>{email}</strong>.
+              Un email de confirmation vous a été envoyé à{' '}
+              <strong style={{ color: 'var(--white)' }}>{email}</strong>.
             </p>
             <p className="modal-subtitle" style={{ marginTop: '8px' }}>
-              Téléchargez l'application, connectez-vous avec cet email, et configurez votre profil.
+              Téléchargez l'application, connectez-vous avec cet email, puis débloquez l'accès complet directement depuis l'app.
             </p>
-            <button className="btn-gold-full" style={{ marginTop: '24px' }} onClick={handleClose}>
+
+            <div className="store-buttons" style={{ marginTop: '24px', marginBottom: '8px' }}>
+              <a
+                href={APP_STORE_URL ?? '#'}
+                onClick={!APP_STORE_URL ? (e) => e.preventDefault() : undefined}
+                className="store-btn"
+                aria-label="Télécharger sur l'App Store"
+                target="_blank" rel="noopener noreferrer"
+              >
+                <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                  <path d="M20.5 14.8c0-2.8 2.3-4.1 2.4-4.2-1.3-1.9-3.3-2.1-4-2.2-1.7-.2-3.3 1-4.2 1s-2.2-1-3.6-1c-1.8 0-3.5 1.1-4.5 2.7-1.9 3.3-.5 8.2 1.4 10.9.9 1.3 2 2.8 3.5 2.7 1.4-.1 1.9-.9 3.6-.9s2.1.9 3.6.9 2.5-1.4 3.4-2.7c1.1-1.5 1.5-3 1.5-3.1-.1 0-2.7-1-2.7-4.1zm-2.5-7.5c.8-.9 1.3-2.2 1.1-3.5-1.1.1-2.5.8-3.3 1.7-.7.8-1.4 2.1-1.2 3.4 1.3.1 2.5-.7 3.4-1.6z" fill="#C9A84C"/>
+                </svg>
+                <div className="store-btn-text">
+                  <span className="store-btn-sub">{APP_STORE_URL ? 'Télécharger sur' : 'Bientôt sur'}</span>
+                  <span className="store-btn-name">App Store</span>
+                </div>
+              </a>
+              <a
+                href={PLAY_STORE_URL ?? '#'}
+                onClick={!PLAY_STORE_URL ? (e) => e.preventDefault() : undefined}
+                className="store-btn"
+                aria-label="Télécharger sur Google Play"
+                target="_blank" rel="noopener noreferrer"
+              >
+                <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                  <path d="M5.5 4.2C5.2 4.5 5 5 5 5.7v16.6c0 .7.2 1.2.5 1.5l.1.1 9.3-9.3v-.2L5.6 4.1l-.1.1z" fill="#C9A84C" opacity=".9"/>
+                  <path d="M18 17.8l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1 .6 1 1.5 0 2.1L18 17.8z" fill="#C9A84C"/>
+                  <path d="M18.1 17.7L14.9 14.5 5.5 23.8c.4.4.9.4 1.5.1l11.1-6.2" fill="#C9A84C" opacity=".8"/>
+                  <path d="M18.1 11.3L7 5.1C6.4 4.8 5.9 4.8 5.5 5.2l9.4 9.3 3.2-3.2z" fill="#C9A84C" opacity=".7"/>
+                </svg>
+                <div className="store-btn-text">
+                  <span className="store-btn-sub">{PLAY_STORE_URL ? 'Disponible sur' : 'Bientôt sur'}</span>
+                  <span className="store-btn-name">Google Play</span>
+                </div>
+              </a>
+            </div>
+
+            <button className="btn-gold-full" style={{ marginTop: '16px' }} onClick={handleClose}>
               Fermer
             </button>
           </div>

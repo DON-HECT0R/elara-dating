@@ -96,7 +96,7 @@ export default function Home() {
               <div className="lock-overlay">
                 <div className="lock-icon">🔒</div>
                 <div className="lock-text">Débloquez l'accès complet<br />pour interagir</div>
-                <button className="lock-cta">Accès complet — 14,99€</button>
+                <button className="lock-cta" onClick={() => setModalOpen(true)}>Créer un compte — Gratuit</button>
               </div>
             </div>
           </div>
@@ -169,9 +169,9 @@ export default function Home() {
             <li>Accès à vie — aucun abonnement, jamais</li>
           </ul>
           <button className="btn-gold-full" onClick={() => setModalOpen(true)}>
-            Créer mon compte &amp; débloquer AURA — 14,99€
+            Créer mon compte AURA — Gratuit
           </button>
-          <div className="secure-note">Paiement sécurisé · Satisfait ou remboursé 7 jours</div>
+          <div className="secure-note">Paiement unique de 14,99€ via Google Play / App Store · Satisfait ou remboursé 7 jours</div>
         </div>
       </section>
 
