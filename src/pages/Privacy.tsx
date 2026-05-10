@@ -1,4 +1,4 @@
-﻿import { usePageTitle } from '../hooks/usePageTitle'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 export default function Privacy() {
   usePageTitle('Politique de confidentialité')

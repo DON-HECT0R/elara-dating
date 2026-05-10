@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useRef, type FormEvent } from 'react'
+import { useState, useEffect, useRef, type FormEvent } from 'react'
 import { supabase, APP_STORE_URL, PLAY_STORE_URL } from '../lib/supabase'
 
 interface Props {

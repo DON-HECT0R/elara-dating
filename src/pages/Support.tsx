@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { usePageTitle } from '../hooks/usePageTitle'
 
 const FAQ = [

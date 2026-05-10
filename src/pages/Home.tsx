@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { usePageTitle } from '../hooks/usePageTitle'
 import RegisterModal from '../components/RegisterModal'
 import { APP_STORE_URL, PLAY_STORE_URL } from '../lib/supabase'
