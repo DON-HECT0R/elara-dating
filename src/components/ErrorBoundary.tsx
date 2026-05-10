@@ -1,4 +1,4 @@
-import { Component, type ErrorInfo, type ReactNode } from 'react'
+﻿import { Component, type ErrorInfo, type ReactNode } from 'react'
 
 interface Props { children: ReactNode }
 interface State { hasError: boolean; message: string }
@@ -11,7 +11,7 @@ export default class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, info: ErrorInfo) {
-    console.error('[AURA ErrorBoundary]', error, info)
+    console.error('[ELARA ErrorBoundary]', error, info)
   }
 
   render() {

@@ -1,4 +1,4 @@
-import { usePageTitle } from '../hooks/usePageTitle'
+﻿import { usePageTitle } from '../hooks/usePageTitle'
 
 export default function Privacy() {
   usePageTitle('Politique de confidentialité')
@@ -7,19 +7,19 @@ export default function Privacy() {
       <div className="page-header">
         <div className="page-eyebrow">Légal & Transparence</div>
         <h1>Politique de<br /><em>confidentialité.</em></h1>
-        <p className="meta">Dernière mise à jour : mars 2025 &nbsp;·&nbsp; Application : AURA Dating</p>
+        <p className="meta">Dernière mise à jour : mars 2025 &nbsp;·&nbsp; Application : ELARA Dating</p>
       </div>
 
       <main className="content-wrapper">
         <div className="intro-block">
-          Chez AURA, votre vie privée est une priorité absolue. Cette politique de confidentialité explique quelles données nous collectons, pourquoi, comment elles sont stockées et protégées, et quels droits vous exercez à tout moment. AURA est conforme au Règlement Général sur la Protection des Données (RGPD — UE 2016/679).
+          Chez ELARA, votre vie privée est une priorité absolue. Cette politique de confidentialité explique quelles données nous collectons, pourquoi, comment elles sont stockées et protégées, et quels droits vous exercez à tout moment. ELARA est conforme au Règlement Général sur la Protection des Données (RGPD — UE 2016/679).
         </div>
 
         {/* 01 */}
         <div className="policy-section">
           <div className="section-num">01</div>
           <h2>Données collectées</h2>
-          <p>Lors de votre inscription et de l'utilisation de l'application AURA, nous collectons les catégories de données suivantes :</p>
+          <p>Lors de votre inscription et de l'utilisation de l'application ELARA, nous collectons les catégories de données suivantes :</p>
           <table className="data-table">
             <thead>
               <tr>
@@ -31,14 +31,14 @@ export default function Privacy() {
               <tr><td>Photos</td><td>Photos de profil téléchargées par l'utilisateur</td><td>Oui (min. 1)</td></tr>
               <tr><td>Localisation</td><td>Position GPS en temps réel ou approximative</td><td>Oui</td></tr>
               <tr><td>Messages</td><td>Contenu des conversations entre utilisateurs matchés</td><td>Fonctionnel</td></tr>
-              <tr><td>Paiement</td><td>Données de paiement traitées par Stripe (jamais stockées par AURA)</td><td>Oui (accès)</td></tr>
+              <tr><td>Paiement</td><td>Données de paiement traitées par Stripe (jamais stockées par ELARA)</td><td>Oui (accès)</td></tr>
               <tr><td>Utilisation</td><td>Interactions dans l'app (likes, vues, sessions), logs techniques</td><td>Automatique</td></tr>
               <tr><td>Notifications</td><td>Token Expo Push Notifications (si activées)</td><td>Optionnel</td></tr>
             </tbody>
           </table>
           <div className="highlight-box">
             <span className="highlight-icon">🔞</span>
-            <p><strong style={{ color: 'var(--white)' }}>Âge minimum requis : 18 ans.</strong> En vous inscrivant sur AURA, vous certifiez être majeur. Tout compte d'une personne mineure sera supprimé immédiatement.</p>
+            <p><strong style={{ color: 'var(--white)' }}>Âge minimum requis : 18 ans.</strong> En vous inscrivant sur ELARA, vous certifiez être majeur. Tout compte d'une personne mineure sera supprimé immédiatement.</p>
           </div>
         </div>
 
@@ -63,7 +63,7 @@ export default function Privacy() {
           <p>Vos données sont hébergées sur des serveurs situés dans l'Union Européenne :</p>
           <ul className="partner-list">
             <li><span><strong>Supabase (UE)</strong> — base de données principale. Conforme au RGPD et certifié SOC 2 Type II.</span></li>
-            <li><span><strong>Stripe</strong> — traitement des paiements. AURA ne stocke jamais vos données bancaires. Stripe est certifié PCI DSS Level 1.</span></li>
+            <li><span><strong>Stripe</strong> — traitement des paiements. ELARA ne stocke jamais vos données bancaires. Stripe est certifié PCI DSS Level 1.</span></li>
           </ul>
           <p>Les données sont chiffrées en transit (TLS 1.3) et au repos. L'accès est restreint selon le principe du moindre privilège.</p>
         </div>
@@ -74,7 +74,7 @@ export default function Privacy() {
           <h2>Partage des données</h2>
           <div className="highlight-box">
             <span className="highlight-icon">✦</span>
-            <p>AURA ne vend, ne loue et ne partage jamais vos données personnelles avec des tiers à des fins commerciales ou publicitaires.</p>
+            <p>ELARA ne vend, ne loue et ne partage jamais vos données personnelles avec des tiers à des fins commerciales ou publicitaires.</p>
           </div>
           <ul className="partner-list">
             <li><span><strong>Supabase Inc.</strong> — hébergement et base de données (DPA conforme RGPD).</span></li>
@@ -87,7 +87,7 @@ export default function Privacy() {
         <div className="policy-section">
           <div className="section-num">05</div>
           <h2>Notifications push</h2>
-          <p>AURA utilise <strong style={{ color: 'var(--white)' }}>Expo Push Notifications</strong> pour vous envoyer des alertes (nouveau match, message reçu, etc.). Ces notifications sont entièrement optionnelles.</p>
+          <p>ELARA utilise <strong style={{ color: 'var(--white)' }}>Expo Push Notifications</strong> pour vous envoyer des alertes (nouveau match, message reçu, etc.). Ces notifications sont entièrement optionnelles.</p>
           <ul className="partner-list">
             <li><span>Depuis les <strong>paramètres de l'app</strong> → Notifications → Désactiver.</span></li>
             <li><span>Depuis les <strong>paramètres système</strong> de votre appareil iOS ou Android.</span></li>
@@ -142,7 +142,7 @@ export default function Privacy() {
           <p>Pour toute question, pour exercer vos droits RGPD ou pour toute réclamation :</p>
           <div className="contact-card">
             <span className="contact-label">✦ Adresse de contact</span>
-            <a href="mailto:contact@aura-dating.app">contact@aura-dating.app</a>
+            <a href="mailto:contact@elara-dating.app">contact@elara-dating.app</a>
             <p>Réponse sous 72 heures ouvrées.</p>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import { usePageTitle } from '../hooks/usePageTitle'
 import RegisterModal from '../components/RegisterModal'
 import { APP_STORE_URL, PLAY_STORE_URL } from '../lib/supabase'
@@ -46,7 +46,7 @@ export default function Home() {
           <div className="hero-eyebrow">Rencontres d'exception</div>
           <h1>
             Révèle<br />
-            ton <em>Aura.</em>
+            ton <em>Elara.</em>
           </h1>
           <p>
             La première app de rencontre où chaque connexion est authentique, vérifiée, et méritée.
@@ -76,7 +76,7 @@ export default function Home() {
                   <div className="silhouette" />
                 </div>
                 <div className="profile-img-overlay" />
-                <div className="verified-badge-phone">AURA Vérifié</div>
+                <div className="verified-badge-phone">ELARA Vérifié</div>
               </div>
               <div className="phone-info">
                 <div className="phone-name">
@@ -112,7 +112,7 @@ export default function Home() {
             <span className="feature-icon" aria-hidden="true">◉</span>
             <span className="feature-number" aria-hidden="true">01</span>
             <h3>Géolocalisation précise</h3>
-            <p>Découvrez des profils qui partagent votre quotidien. AURA détecte les personnes que vous croisez réellement, créant des connexions ancrées dans la réalité.</p>
+            <p>Découvrez des profils qui partagent votre quotidien. ELARA détecte les personnes que vous croisez réellement, créant des connexions ancrées dans la réalité.</p>
           </div>
           <div className="feature-card fade-up">
             <span className="feature-icon" aria-hidden="true">✦</span>
@@ -124,7 +124,7 @@ export default function Home() {
             <span className="feature-icon" aria-hidden="true">⬡</span>
             <span className="feature-number" aria-hidden="true">03</span>
             <h3>Identité vérifiée</h3>
-            <p>Chaque profil AURA est vérifié par pièce d'identité et selfie en temps réel. Zéro faux profil, zéro bot. Le badge doré est une garantie, pas une option.</p>
+            <p>Chaque profil ELARA est vérifié par pièce d'identité et selfie en temps réel. Zéro faux profil, zéro bot. Le badge doré est une garantie, pas une option.</p>
           </div>
         </div>
       </section>
@@ -164,12 +164,12 @@ export default function Home() {
           <ul className="perks">
             <li>Liker, matcher et envoyer des messages</li>
             <li>Voir qui a liké votre profil</li>
-            <li>Badge AURA Vérifié sur votre profil</li>
+            <li>Badge ELARA Vérifié sur votre profil</li>
             <li>Filtres avancés (valeurs, intentions, mode de vie)</li>
             <li>Accès à vie — aucun abonnement, jamais</li>
           </ul>
           <button className="btn-gold-full" onClick={() => setModalOpen(true)}>
-            Créer mon compte AURA — Gratuit
+            Créer mon compte ELARA — Gratuit
           </button>
           <div className="secure-note">Paiement unique de 14,99€ via Google Play / App Store · Satisfait ou remboursé 7 jours</div>
         </div>
@@ -184,7 +184,7 @@ export default function Home() {
           <div className="screen-item">
             <div className="screen-mini screen-discovery">
               <div className="screen-header-mini">
-                <span className="screen-logo-mini">AURA</span>
+                <span className="screen-logo-mini">ELARA</span>
                 <div className="notif-dot" />
               </div>
               <div className="mini-cards-stack">
@@ -251,7 +251,7 @@ export default function Home() {
           Disponible sur iOS<br />et <em style={{ fontStyle: 'italic', color: 'var(--gold)' }}>Android.</em>
         </h2>
         <p style={{ fontSize: '0.78rem', color: 'var(--white-dim)', lineHeight: 1.9, maxWidth: '400px', margin: '0 auto' }}>
-          Téléchargez AURA gratuitement. Le paiement unique de 14,99€ débloque l'accès complet à vie.
+          Téléchargez ELARA gratuitement. Le paiement unique de 14,99€ débloque l'accès complet à vie.
         </p>
         <div className="store-buttons">
           {/* App Store */}

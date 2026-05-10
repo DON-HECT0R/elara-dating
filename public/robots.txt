@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://aura-dating-three.vercel.app/sitemap.xml
+Sitemap: https://elara-dating.vercel.app/sitemap.xml

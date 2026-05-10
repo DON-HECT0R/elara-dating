@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
     <footer>
-      <div className="footer-logo">AURA</div>
+      <div className="footer-logo">ELARA</div>
       <div className="footer-links">
         <a href="/privacy.html">Confidentialité</a>
         <Link to="/terms">CGU</Link>
@@ -11,8 +11,8 @@ export default function Footer() {
         <Link to="/contact">Contact</Link>
         <Link to="/delete-account">Supprimer mon compte</Link>
       </div>
-      <div className="footer-tagline">« Révèle ton Aura. »</div>
-      <div className="footer-copy">© {new Date().getFullYear()} AURA — Tous droits réservés</div>
+      <div className="footer-tagline">« Révèle ton Elara. »</div>
+      <div className="footer-copy">© {new Date().getFullYear()} ELARA — Tous droits réservés</div>
     </footer>
   )
 }

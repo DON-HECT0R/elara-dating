@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { usePageTitle } from '../hooks/usePageTitle'
 
 export default function DeleteAccount() {
@@ -8,12 +8,12 @@ export default function DeleteAccount() {
       <div className="page-header">
         <div className="page-eyebrow">Gestion du compte</div>
         <h1>Supprimer<br /><em>mon compte.</em></h1>
-        <p className="meta">Procédure de suppression définitive · AURA Dating</p>
+        <p className="meta">Procédure de suppression définitive · ELARA Dating</p>
       </div>
 
       <main className="content-wrapper">
         <div className="intro-block">
-          La suppression de votre compte AURA est définitive et irréversible. Toutes vos données personnelles, photos, messages et historique seront effacés de nos serveurs dans un délai de 30 jours. Cette procédure est conforme à votre droit à l'effacement (RGPD, article 17).
+          La suppression de votre compte ELARA est définitive et irréversible. Toutes vos données personnelles, photos, messages et historique seront effacés de nos serveurs dans un délai de 30 jours. Cette procédure est conforme à votre droit à l'effacement (RGPD, article 17).
         </div>
 
         <div className="policy-section">
@@ -38,7 +38,7 @@ export default function DeleteAccount() {
           <h2>Procédure depuis<br /><em>l'application.</em></h2>
           <p>La méthode la plus rapide pour supprimer votre compte :</p>
           <ol className="steps-list">
-            <li><span>Ouvrez l'application AURA sur votre appareil.</span></li>
+            <li><span>Ouvrez l'application ELARA sur votre appareil.</span></li>
             <li><span>Appuyez sur votre <strong>photo de profil</strong> en haut à gauche pour accéder à votre profil.</span></li>
             <li><span>Appuyez sur <strong>Paramètres</strong> (icône ⚙ en haut à droite).</span></li>
             <li><span>Faites défiler jusqu'à la section <strong>Mon compte</strong>.</span></li>
@@ -53,7 +53,7 @@ export default function DeleteAccount() {
           <h2>Procédure par<br /><em>email.</em></h2>
           <p>Si vous n'avez plus accès à l'application, vous pouvez envoyer une demande de suppression par email :</p>
           <ol className="steps-list">
-            <li><span>Envoyez un email à <strong>contact@aura-dating.app</strong> depuis l'adresse email associée à votre compte AURA.</span></li>
+            <li><span>Envoyez un email à <strong>contact@elara-dating.app</strong> depuis l'adresse email associée à votre compte ELARA.</span></li>
             <li><span>Indiquez en objet : <strong>« Demande de suppression de compte »</strong></span></li>
             <li><span>Dans le corps du message, précisez votre nom d'utilisateur ou l'email de votre compte.</span></li>
             <li><span>Notre équipe vous confirmera la réception de votre demande sous 72 heures ouvrées.</span></li>
@@ -61,8 +61,8 @@ export default function DeleteAccount() {
           </ol>
           <div className="contact-card">
             <span className="contact-label">✦ Email de suppression</span>
-            <a href="mailto:contact@aura-dating.app?subject=Demande%20de%20suppression%20de%20compte">
-              contact@aura-dating.app
+            <a href="mailto:contact@elara-dating.app?subject=Demande%20de%20suppression%20de%20compte">
+              contact@elara-dating.app
             </a>
             <p>Mentionnez « Demande de suppression de compte » en objet</p>
           </div>
@@ -92,8 +92,8 @@ export default function DeleteAccount() {
           <h2>Besoin<br /><em>d'aide ?</em></h2>
           <p>Si vous avez des questions sur la procédure de suppression ou si vous souhaitez exercer d'autres droits RGPD (accès, rectification, portabilité…), consultez notre <Link to="/privacy" style={{ color: 'var(--gold)', textDecoration: 'none' }}>politique de confidentialité</Link> ou contactez-nous.</p>
           <div className="contact-card">
-            <span className="contact-label">✦ Support AURA</span>
-            <a href="mailto:contact@aura-dating.app">contact@aura-dating.app</a>
+            <span className="contact-label">✦ Support ELARA</span>
+            <a href="mailto:contact@elara-dating.app">contact@elara-dating.app</a>
             <p>Notre équipe répond sous 72 heures ouvrées</p>
           </div>
         </div>

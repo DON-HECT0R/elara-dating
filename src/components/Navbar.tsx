@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const SECTION_LINKS = [
@@ -39,7 +39,7 @@ export default function Navbar() {
   return (
     <>
       <nav>
-        <Link to="/" className="logo" aria-label="AURA — retour à l'accueil">
+        <Link to="/" className="logo" aria-label="ELARA — retour à l'accueil">
           A<span>u</span>ra
         </Link>
 

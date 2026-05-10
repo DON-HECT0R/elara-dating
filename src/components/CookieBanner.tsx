@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 
-const STORAGE_KEY = 'aura_cookie_consent'
+const STORAGE_KEY = 'elara_cookie_consent'
 
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false)

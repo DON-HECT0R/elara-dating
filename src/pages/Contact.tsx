@@ -1,11 +1,11 @@
-import { usePageTitle } from '../hooks/usePageTitle'
+﻿import { usePageTitle } from '../hooks/usePageTitle'
 
 const TOPICS = [
   {
     icon: '◉',
     title: 'Support technique',
     desc: 'Problème de connexion, bug dans l\'app, question sur votre compte ou votre profil.',
-    email: 'contact@aura-dating.app',
+    email: 'contact@elara-dating.app',
     subject: 'Support technique',
     delay: '0.1s',
   },
@@ -13,7 +13,7 @@ const TOPICS = [
     icon: '⬡',
     title: 'Légal & RGPD',
     desc: 'Exercer vos droits (accès, rectification, suppression), réclamation, demande juridique.',
-    email: 'contact@aura-dating.app',
+    email: 'contact@elara-dating.app',
     subject: 'Demande RGPD',
     delay: '0.2s',
   },
@@ -21,7 +21,7 @@ const TOPICS = [
     icon: '✦',
     title: 'Presse & Partenariats',
     desc: 'Demande presse, collaboration, partenariat ou toute opportunité professionnelle.',
-    email: 'contact@aura-dating.app',
+    email: 'contact@elara-dating.app',
     subject: 'Presse / Partenariat',
     delay: '0.3s',
   },
@@ -41,7 +41,7 @@ export default function Contact() {
       <main className="content-wrapper">
         <div className="intro-block">
           Une question, un problème ou une demande légale ? Choisissez le sujet qui vous correspond.
-          Toutes les demandes sont traitées par l'équipe AURA dans un délai de 72 heures ouvrées.
+          Toutes les demandes sont traitées par l'équipe ELARA dans un délai de 72 heures ouvrées.
         </div>
 
         <div className="contact-topics">

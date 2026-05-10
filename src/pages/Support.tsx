@@ -1,10 +1,10 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { usePageTitle } from '../hooks/usePageTitle'
 
 const FAQ = [
   {
-    q: 'Comment fonctionne AURA ?',
-    a: "AURA vous propose des profils de personnes à proximité géographique de vous. En répondant à 12 questions sur vos valeurs et votre mode de vie, AURA calcule un score de compatibilité avec chaque profil. Tous les profils sont vérifiés par pièce d'identité et selfie en temps réel pour garantir leur authenticité.",
+    q: 'Comment fonctionne ELARA ?',
+    a: "ELARA vous propose des profils de personnes à proximité géographique de vous. En répondant à 12 questions sur vos valeurs et votre mode de vie, ELARA calcule un score de compatibilité avec chaque profil. Tous les profils sont vérifiés par pièce d'identité et selfie en temps réel pour garantir leur authenticité.",
   },
   {
     q: 'Comment est calculé le score de compatibilité ?',
@@ -12,31 +12,31 @@ const FAQ = [
   },
   {
     q: 'Comment fonctionne la vérification d\'identité ?',
-    a: "Lors de l'inscription, vous devez photographier une pièce d'identité officielle (passeport, carte d'identité, permis de conduire) et prendre un selfie en temps réel. Notre système vérifie que la photo correspond à la pièce d'identité. Ce processus prend généralement moins de 5 minutes. Le badge doré « AURA Vérifié » est ensuite affiché sur votre profil.",
+    a: "Lors de l'inscription, vous devez photographier une pièce d'identité officielle (passeport, carte d'identité, permis de conduire) et prendre un selfie en temps réel. Notre système vérifie que la photo correspond à la pièce d'identité. Ce processus prend généralement moins de 5 minutes. Le badge doré « ELARA Vérifié » est ensuite affiché sur votre profil.",
   },
   {
     q: "Qu'est-ce que l'offre Fondateur à 14,99€ ?",
-    a: "L'offre Fondateur est un accès à vie à toutes les fonctionnalités d'AURA pour un paiement unique de 14,99€. Aucun abonnement, aucun frais récurrent. Les premiers utilisateurs bénéficient de ce tarif réduit (au lieu de 19,99€). Vous bénéficiez d'une garantie satisfait ou remboursé pendant 7 jours.",
+    a: "L'offre Fondateur est un accès à vie à toutes les fonctionnalités d'ELARA pour un paiement unique de 14,99€. Aucun abonnement, aucun frais récurrent. Les premiers utilisateurs bénéficient de ce tarif réduit (au lieu de 19,99€). Vous bénéficiez d'une garantie satisfait ou remboursé pendant 7 jours.",
   },
   {
-    q: 'Puis-je tester AURA avant de payer ?',
+    q: 'Puis-je tester ELARA avant de payer ?',
     a: "Oui. Vous pouvez créer un profil, voir les profils à proximité et consulter les scores de compatibilité gratuitement. Le paiement est requis pour liker, matcher et envoyer des messages. C'est seulement à partir du moment où vous souhaitez interagir avec un profil que l'accès complet est nécessaire.",
   },
   {
     q: 'Comment puis-je désactiver les notifications push ?',
-    a: "Dans l'application : Paramètres → Notifications → Désactiver. Vous pouvez aussi gérer les notifications depuis les paramètres système de votre téléphone (iOS : Réglages → AURA → Notifications / Android : Paramètres → Applications → AURA → Notifications). La désactivation n'affecte pas l'accès aux fonctionnalités.",
+    a: "Dans l'application : Paramètres → Notifications → Désactiver. Vous pouvez aussi gérer les notifications depuis les paramètres système de votre téléphone (iOS : Réglages → ELARA → Notifications / Android : Paramètres → Applications → ELARA → Notifications). La désactivation n'affecte pas l'accès aux fonctionnalités.",
   },
   {
     q: 'Comment supprimer mon compte ?',
-    a: "Depuis l'app : Paramètres → Mon compte → Supprimer mon compte. Toutes vos données (profil, photos, messages, likes) sont supprimées définitivement et irréversiblement sous 30 jours. Vous pouvez aussi envoyer une demande par email à contact@aura-dating.app.",
+    a: "Depuis l'app : Paramètres → Mon compte → Supprimer mon compte. Toutes vos données (profil, photos, messages, likes) sont supprimées définitivement et irréversiblement sous 30 jours. Vous pouvez aussi envoyer une demande par email à contact@elara-dating.app.",
   },
   {
     q: 'Mes données sont-elles partagées avec des tiers ?',
-    a: "Non. AURA ne vend jamais vos données. Vos données sont uniquement partagées avec Supabase (hébergement, serveurs UE) et Stripe (paiement sécurisé). Les notifications push utilisent Expo Push Notifications — seul votre token de notification est transmis, aucun contenu de message n'est partagé.",
+    a: "Non. ELARA ne vend jamais vos données. Vos données sont uniquement partagées avec Supabase (hébergement, serveurs UE) et Stripe (paiement sécurisé). Les notifications push utilisent Expo Push Notifications — seul votre token de notification est transmis, aucun contenu de message n'est partagé.",
   },
   {
     q: "L'application est-elle disponible sur iOS et Android ?",
-    a: "Oui, AURA est disponible sur l'App Store (iOS) et le Google Play Store (Android). La landing page web vous permet de rejoindre la liste d'attente et d'accéder à l'offre fondateur avant le lancement officiel.",
+    a: "Oui, ELARA est disponible sur l'App Store (iOS) et le Google Play Store (Android). La landing page web vous permet de rejoindre la liste d'attente et d'accéder à l'offre fondateur avant le lancement officiel.",
   },
 ]
 
@@ -65,7 +65,7 @@ export default function Support() {
 
       <main className="content-wrapper">
         <div className="intro-block">
-          Vous avez une question sur AURA ? Consultez notre FAQ ci-dessous. Si vous ne trouvez pas la réponse, contactez-nous directement — nous répondons sous 72 heures ouvrées.
+          Vous avez une question sur ELARA ? Consultez notre FAQ ci-dessous. Si vous ne trouvez pas la réponse, contactez-nous directement — nous répondons sous 72 heures ouvrées.
         </div>
 
         <div className="policy-section">
@@ -83,8 +83,8 @@ export default function Support() {
           <h2>Une autre<br /><em>question ?</em></h2>
           <p>Notre équipe est disponible pour répondre à toutes vos demandes : questions techniques, problèmes de compte, demandes RGPD ou feedback sur l'application.</p>
           <div className="contact-card">
-            <span className="contact-label">✦ Écrire à l'équipe AURA</span>
-            <a href="mailto:contact@aura-dating.app">contact@aura-dating.app</a>
+            <span className="contact-label">✦ Écrire à l'équipe ELARA</span>
+            <a href="mailto:contact@elara-dating.app">contact@elara-dating.app</a>
             <p>Réponse garantie sous 72 heures ouvrées · Du lundi au vendredi</p>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, type FormEvent } from 'react'
+﻿import { useState, useEffect, useRef, type FormEvent } from 'react'
 import { supabase, APP_STORE_URL, PLAY_STORE_URL } from '../lib/supabase'
 
 interface Props {
@@ -99,7 +99,7 @@ export default function RegisterModal({ open, onClose }: Props) {
           <>
             <div className="modal-eyebrow">Créer votre compte — gratuit</div>
             <h2 id="modal-title" className="modal-title">
-              Rejoindre <em>AURA.</em>
+              Rejoindre <em>ELARA.</em>
             </h2>
             <p className="modal-subtitle">
               Créez votre compte ici, puis téléchargez l'app et connectez-vous.
@@ -160,7 +160,7 @@ export default function RegisterModal({ open, onClose }: Props) {
                 className={`btn-gold-full modal-submit${step === 'loading' ? ' loading' : ''}`}
                 disabled={step === 'loading'}
               >
-                {step === 'loading' ? 'Création du compte…' : 'Créer mon compte AURA'}
+                {step === 'loading' ? 'Création du compte…' : 'Créer mon compte ELARA'}
               </button>
             </form>
 
