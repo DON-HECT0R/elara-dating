@@ -46,7 +46,7 @@ export default function Home() {
           <div className="hero-eyebrow">Rencontres d'exception</div>
           <h1>
             Révèle<br />
-            ton <em>Elara.</em>
+            ton <em>essence.</em>
           </h1>
           <p>
             La première app de rencontre où chaque connexion est authentique, vérifiée, et méritée.

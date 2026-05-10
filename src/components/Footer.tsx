@@ -11,7 +11,7 @@ export default function Footer() {
         <Link to="/contact">Contact</Link>
         <Link to="/delete-account">Supprimer mon compte</Link>
       </div>
-      <div className="footer-tagline">« Révèle ton Elara. »</div>
+      <div className="footer-tagline">« Révèle ton essence. »</div>
       <div className="footer-copy">© {new Date().getFullYear()} ELARA — Tous droits réservés</div>
     </footer>
   )

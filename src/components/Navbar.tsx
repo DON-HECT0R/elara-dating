@@ -40,7 +40,7 @@ export default function Navbar() {
     <>
       <nav>
         <Link to="/" className="logo" aria-label="ELARA — retour à l'accueil">
-          A<span>u</span>ra
+          El<span>ar</span>a
         </Link>
 
         {/* Desktop links */}
